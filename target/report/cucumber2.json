@@ -1,0 +1,94 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 63535546700,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "site is opened",
+            "match": {
+              "location": "MyStepdefs.siteIsOpened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 9434757000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user is already logged in",
+            "match": {
+              "location": "MyStepdefs.userIsAlreadyLoggedIn()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 10,
+        "name": "Advertiser block is shown",
+        "description": "",
+        "id": "article-functionality;advertiser-block-is-shown",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 10275460500,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "user clicks Advertiser block",
+            "match": {
+              "location": "AdvertisersStepDefs.userClicksAdvertiserBlock()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 66060127300,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "Advertisers list is shown",
+            "match": {
+              "location": "AdvertisersStepDefs.advertisersListIsShown()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 13,
+            "name": "Advertiser is added to cookies",
+            "match": {},
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      }
+    ],
+    "name": "Article functionality",
+    "description": "  As user I want to get opportunity to get actual info about person, download person info and get person photo",
+    "id": "article-functionality",
+    "keyword": "Feature",
+    "uri": "src/test/resources/features/Advertisers.feature",
+    "tags": []
+  }
+]
