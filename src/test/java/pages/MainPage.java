@@ -44,7 +44,7 @@ public class MainPage {
     }
 
     public void clickTopLevelClients() {
-        advertisersButton.click();
+        topLevelClientsButton.click();
     }
 
     public List<String> advertisersNames() {
@@ -76,5 +76,18 @@ public class MainPage {
         }
         System.out.println(result);
         return result;
+    }
+
+    public SelenideElement findAdvertiser(String adver) {
+        return advertisers.findBy(Condition.text(adver));
+
+    }
+
+    public SelenideElement findPublisher(String pub) {
+        return publishers.findBy(Condition.text(pub));
+    }
+
+    public SelenideElement findTopLevelClient(String client) {
+        return topLevelClients.findBy(Condition.text(client));
     }
 }

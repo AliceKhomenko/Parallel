@@ -25,7 +25,7 @@ public class Card {
     private SelenideElement cardTitle;
 
     @FindBy(css = "#dataCard textarea.form-control")
-    private SelenideElement cardText;
+    public SelenideElement cardText;
 
     @FindBy(xpath = "//*[@id='dataCard']//button[contains(text(),'Download info')]")
     private SelenideElement downloadFileButton;
@@ -76,6 +76,8 @@ public class Card {
         String content = null;
         try {
             content = new String(Files.readAllBytes(Paths.get(path)));
+            File downloadedFile = new File(path);
+            downloadedFile.delete();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -84,11 +86,9 @@ public class Card {
 
     public void downloadFile() {
 
-        try {
-            File file = downloadFileButton.download();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+
+            downloadFileButton.click();
+
 
         try {
             Thread.sleep(20000);

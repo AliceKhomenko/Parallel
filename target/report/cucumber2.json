@@ -11,7 +11,7 @@
         "steps": [
           {
             "result": {
-              "duration": 63535546700,
+              "duration": 3203326089,
               "status": "passed"
             },
             "line": 4,
@@ -23,7 +23,7 @@
           },
           {
             "result": {
-              "duration": 9434757000,
+              "duration": 28287597,
               "status": "passed"
             },
             "line": 5,
@@ -36,45 +36,991 @@
         ]
       },
       {
-        "line": 10,
-        "name": "Advertiser block is shown",
+        "line": 39,
+        "name": "Check files for Top level clients",
         "description": "",
-        "id": "article-functionality;advertiser-block-is-shown",
+        "id": "check-files;check-files-for-top-level-clients;;2",
         "type": "scenario",
-        "keyword": "Scenario",
+        "keyword": "Scenario Outline",
         "steps": [
           {
             "result": {
-              "duration": 10275460500,
+              "duration": 651030615,
               "status": "passed"
             },
-            "line": 11,
-            "name": "user clicks Advertiser block",
+            "line": 32,
+            "name": "user clicks Top level clients block",
             "match": {
-              "location": "AdvertisersStepDefs.userClicksAdvertiserBlock()"
+              "location": "AdvertisersStepDefs.userClicksTopLevelClientsBlock()"
             },
             "keyword": "When "
           },
           {
             "result": {
-              "duration": 66060127300,
+              "duration": 133297513,
               "status": "passed"
             },
-            "line": 12,
-            "name": "Advertisers list is shown",
+            "line": 33,
+            "name": "user clicks \"Jon Snow\" Client",
             "match": {
-              "location": "AdvertisersStepDefs.advertisersListIsShown()"
+              "arguments": [
+                {
+                  "val": "Jon Snow",
+                  "offset": 13
+                }
+              ],
+              "location": "AdvertisersStepDefs.userClicksClient(String)"
             },
-            "keyword": "Then "
+            "keyword": "And "
           },
           {
             "result": {
-              "status": "undefined"
+              "duration": 21241383426,
+              "status": "passed"
             },
-            "line": 13,
-            "name": "Advertiser is added to cookies",
-            "match": {},
+            "line": 34,
+            "name": "user downloads file",
+            "match": {
+              "location": "AdvertisersStepDefs.userDownloadsFile()"
+            },
             "keyword": "And "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.AssertionError: expected [Jon Snow is a fictional character in the A Song of Ice and Fire series of fantasynovels by American author George R. R. Martin, and its television adaptation Game of Thrones,in which he is portrayed by English actor Kit Harington. In the novels, he is a prominent point of view character.He is one of the most popular characters in the series, and The New York Times cites him as one of the author\u0027s finest creations.Jon is a main character in the TV series, and his storyline in the season 5 finale generated a strong reaction among viewers.Speculation about the character\u0027s parentage has also been a popular topic of discussion among fans of both the books and the TV series.Jon is introduced in 1996\u0027s A Game of Thrones as the illegitimate son of Ned Stark,the honorable lord of Winterfell, an ancient fortress in the North of the fictionalcontinent of Westeros. Knowing his prospects are limited by his status, Jon joins theNight\u0027s Watch, who guard the far northern borders from the wildlings who live beyond The Wall.As the rest of the Starks face grave adversity, Jon finds himself honor bound to remain with the Watch.In A Clash of Kings (1998), he joins a scouting party investigating the growing threat from the otherworldly \"Others\"beyond the Wall, and manages to infiltrate the wildlings. Jon learns of their plans to invade Westeros in A Storm ofSwords (2000), and begins to fall in love with the fierce wildling woman Ygritte. He betrays them—and Ygritte—before theycan attack, but the Night Watch\u0027s victory comes at a heavy price for Jon. Now the Lord Commander of the Watch, he appearsbriefly in 2005\u0027s A Feast for Crows. Jon returns as a prominent character in a A Dance with Dragons (2011), working tonegotiate an alliance between the Night\u0027s Watch and the wildlings. The growing animosity he has attracted from among theWatch finally catches up with him, and he is forced to face the dire consequences.On the HBO series Game of Thrones, Jon\u0027s storyline follows the character\u0027s plot arc from the novel series,though season 6, season 7 and season 8 of the TV adaptation continue on from the events of Martin\u0027s latest publishedinstallment. Harington was nominated for a Primetime Emmy Award for Outstanding Supporting Actor in a Drama Series forthe role in 2016. He was also nominated for a Saturn Award for Best Supporting Actor on Television in 2012, 2016 and 2017.] but found [Jon Snow is a fictional character in the A Song of Ice and Fire series of fantasy novels by American author George R. R. Martin, and its television adaptation Game of Thrones, in which he is portrayed by English actor Kit Harington. In the novels, he is a prominent point of view character. He is one of the most popular characters in the series, and The New York Times cites him as one of the author\u0027s finest creations.Jon is a main character in the TV series, and his storyline in the season 5 finale generated a strong reaction among viewers. Speculation about the character\u0027s parentage has also been a popular topic of discussion among fans of both the books and the TV series.Jon is introduced in 1996\u0027s A Game of Thrones as the illegitimate son of Ned Stark, the honorable lord of Winterfell, an ancient fortress in the North of the fictional continent of Westeros. Knowing his prospects are limited by his status, Jon joins theNight\u0027s Watch, who guard the far northern borders from the wildlings who live beyond The Wall. As the rest of the Starks face grave adversity, Jon finds himself honor bound to remain with the Watch. In A Clash of Kings (1998), he joins a scouting party investigating the growing threat from the otherworldly \"Others\"beyond the Wall, and manages to infiltrate the wildlings. Jon learns of their plans to invade Westeros in A Storm of Swords (2000), and begins to fall in love with the fierce wildling woman Ygritte. He betrays them—and Ygritte—before they can attack, but the Night Watch\u0027s victory comes at a heavy price for Jon. Now the Lord Commander of the Watch, he appears briefly in 2005\u0027s A Feast for Crows. Jon returns as a prominent character in a A Dance with Dragons (2011), working to negotiate an alliance between the Night\u0027s Watch and the wildlings. The growing animosity he has attracted from among theWatch finally catches up with him, and he is forced to face the dire consequences.On the HBO series Game of Thrones, Jon\u0027s storyline follows the character\u0027s plot arc from the novel series, though season 6, season 7 and season 8 of the TV adaptation continue on from the events of Martin\u0027s latest publishedinstallment. Harington was nominated for a Primetime Emmy Award for Outstanding Supporting Actor in a Drama Series for the role in 2016. He was also nominated for a Saturn Award for Best Supporting Actor on Television in 2012, 2016 and 2017.]\n\tat org.testng.Assert.fail(Assert.java:96)\n\tat org.testng.Assert.failNotEquals(Assert.java:776)\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:137)\n\tat org.testng.Assert.assertEquals(Assert.java:118)\n\tat org.testng.Assert.assertEquals(Assert.java:453)\n\tat org.testng.Assert.assertEquals(Assert.java:463)\n\tat stepdefs.AdvertisersStepDefs.downloadFileAndTextOnTheSiteIsEqual(AdvertisersStepDefs.java:93)\n\tat ✽.download file and text on the site is equal(src/test/resources/features/Download files.feature:35)\n",
+              "duration": 31985812,
+              "status": "failed"
+            },
+            "line": 35,
+            "name": "download file and text on the site is equal",
+            "match": {
+              "location": "AdvertisersStepDefs.downloadFileAndTextOnTheSiteIsEqual()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 2530128562,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "site is opened",
+            "match": {
+              "location": "MyStepdefs.siteIsOpened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 16861213,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user is already logged in",
+            "match": {
+              "location": "MyStepdefs.userIsAlreadyLoggedIn()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 40,
+        "name": "Check files for Top level clients",
+        "description": "",
+        "id": "check-files;check-files-for-top-level-clients;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 494550184,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "user clicks Top level clients block",
+            "match": {
+              "location": "AdvertisersStepDefs.userClicksTopLevelClientsBlock()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 150067106,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "user clicks \"Artur Fleck\" Client",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Artur Fleck",
+                  "offset": 13
+                }
+              ],
+              "location": "AdvertisersStepDefs.userClicksClient(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 21346670568,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "user downloads file",
+            "match": {
+              "location": "AdvertisersStepDefs.userDownloadsFile()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 24619814,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "download file and text on the site is equal",
+            "match": {
+              "location": "AdvertisersStepDefs.downloadFileAndTextOnTheSiteIsEqual()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 2171710652,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "site is opened",
+            "match": {
+              "location": "MyStepdefs.siteIsOpened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 16400926,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user is already logged in",
+            "match": {
+              "location": "MyStepdefs.userIsAlreadyLoggedIn()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 41,
+        "name": "Check files for Top level clients",
+        "description": "",
+        "id": "check-files;check-files-for-top-level-clients;;4",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 414040846,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "user clicks Top level clients block",
+            "match": {
+              "location": "AdvertisersStepDefs.userClicksTopLevelClientsBlock()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 169330177,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "user clicks \"Tim Cook\" Client",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Tim Cook",
+                  "offset": 13
+                }
+              ],
+              "location": "AdvertisersStepDefs.userClicksClient(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "error_message": "Element not found {By.xpath: //*[@id\u003d\u0027dataCard\u0027]//button[contains(text(),\u0027Download info\u0027)]}\nExpected: visible or transparent: visible or have css value opacity\u003d0\nScreenshot: file:/home/khomenkoalina/IdeaProjects/Parallel/build/reports/tests/1575284608111.0.png\nPage source: file:/home/khomenkoalina/IdeaProjects/Parallel/build/reports/tests/1575284608111.0.html\nTimeout: 20 s.\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[@id\u003d\u0027dataCard\u0027]//button[contains(text(),\u0027Download info\u0027)]\"}\n\tat com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:37)\n\tat com.codeborne.selenide.impl.ElementFinder.createElementNotFoundError(ElementFinder.java:100)\n\tat com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:65)\n\tat com.codeborne.selenide.impl.WebElementSource.findAndAssertElementIsInteractable(WebElementSource.java:87)\n\tat com.codeborne.selenide.commands.Click.execute(Click.java:13)\n\tat com.codeborne.selenide.commands.Click.execute(Click.java:9)\n\tat com.codeborne.selenide.commands.Commands.execute(Commands.java:145)\n\tat com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:99)\n\tat com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:65)\n\tat com.sun.proxy.$Proxy16.click(Unknown Source)\n\tat pages.Card.downloadFile(Card.java:88)\n\tat stepdefs.AdvertisersStepDefs.userDownloadsFile(AdvertisersStepDefs.java:80)\n\tat ✽.user downloads file(src/test/resources/features/Download files.feature:34)\nCaused by: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//*[@id\u003d\u0027dataCard\u0027]//button[contains(text(),\u0027Download info\u0027)]\"}\n  (Session info: chrome\u003d75.0.3770.100)\nFor documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027KhomenkoA\u0027, ip: \u0027127.0.1.1\u0027, os.name: \u0027Linux\u0027, os.arch: \u0027amd64\u0027, os.version: \u00274.10.0-42-generic\u0027, java.version: \u00271.8.0_151\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 75.0.3770.100, chrome: {chromedriverVersion: 75.0.3770.90 (a6dcaf7e3ec6f..., userDataDir: /tmp/.com.google.Chrome.JZfaR7}, goog:chromeOptions: {debuggerAddress: localhost:39725}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: LINUX, platformName: LINUX, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}\nSession ID: a1371b258262aa8b393030142b4c3862\n*** Element info: {Using\u003dxpath, value\u003d//*[@id\u003d\u0027dataCard\u0027]//button[contains(text(),\u0027Download info\u0027)]}\n\tat sun.reflect.GeneratedConstructorAccessor16.newInstance(Unknown Source)\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)\n\tat org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)\n\tat org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)\n\tat org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)\n\tat org.openqa.selenium.By$ByXPath.findElement(By.java:353)\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)\n\tat com.codeborne.selenide.impl.WebElementSelector.findElement(WebElementSelector.java:30)\n\tat com.codeborne.selenide.impl.ElementFinder.getWebElement(ElementFinder.java:74)\n\tat com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:50)\n\tat com.codeborne.selenide.impl.WebElementSource.findAndAssertElementIsInteractable(WebElementSource.java:87)\n\tat com.codeborne.selenide.commands.Click.execute(Click.java:13)\n\tat com.codeborne.selenide.commands.Click.execute(Click.java:9)\n\tat com.codeborne.selenide.commands.Commands.execute(Commands.java:145)\n\tat com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:99)\n\tat com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:65)\n\tat com.sun.proxy.$Proxy16.click(Unknown Source)\n\tat pages.Card.downloadFile(Card.java:88)\n\tat stepdefs.AdvertisersStepDefs.userDownloadsFile(AdvertisersStepDefs.java:80)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat cucumber.runtime.Utils$1.call(Utils.java:26)\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\n\tat cucumber.runtime.Utils.invoke(Utils.java:20)\n\tat cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:48)\n\tat cucumber.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:50)\n\tat cucumber.runner.TestStep.executeStep(TestStep.java:63)\n\tat cucumber.runner.TestStep.run(TestStep.java:49)\n\tat cucumber.runner.PickleStepTestStep.run(PickleStepTestStep.java:43)\n\tat cucumber.runner.TestCase.run(TestCase.java:44)\n\tat cucumber.runner.Runner.runPickle(Runner.java:40)\n\tat cucumber.api.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:68)\n\tat cucumber.api.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:22)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)\n\tat org.testng.internal.Invoker.invokeMethod(Invoker.java:583)\n\tat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)\n\tat org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)\n\tat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)\n\tat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)\n\tat org.testng.TestRunner.privateRun(TestRunner.java:648)\n\tat org.testng.TestRunner.run(TestRunner.java:505)\n\tat org.testng.SuiteRunner.runTest(SuiteRunner.java:455)\n\tat org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)\n\tat org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)\n\tat org.testng.SuiteRunner.run(SuiteRunner.java:364)\n\tat org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)\n\tat org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)\n\tat org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)\n\tat org.testng.TestNG.runSuitesLocally(TestNG.java:1137)\n\tat org.testng.TestNG.runSuites(TestNG.java:1049)\n\tat org.testng.TestNG.run(TestNG.java:1017)\n\tat org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)\n\tat org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:127)\n",
+              "duration": 20337632052,
+              "status": "failed"
+            },
+            "line": 34,
+            "name": "user downloads file",
+            "match": {
+              "location": "AdvertisersStepDefs.userDownloadsFile()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 29108,
+              "status": "skipped"
+            },
+            "line": 35,
+            "name": "download file and text on the site is equal",
+            "match": {
+              "location": "AdvertisersStepDefs.downloadFileAndTextOnTheSiteIsEqual()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 2154170996,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "site is opened",
+            "match": {
+              "location": "MyStepdefs.siteIsOpened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 16499613,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user is already logged in",
+            "match": {
+              "location": "MyStepdefs.userIsAlreadyLoggedIn()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 42,
+        "name": "Check files for Top level clients",
+        "description": "",
+        "id": "check-files;check-files-for-top-level-clients;;5",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 482542243,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "user clicks Top level clients block",
+            "match": {
+              "location": "AdvertisersStepDefs.userClicksTopLevelClientsBlock()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 194294512,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "user clicks \"Bugs Bunny\" Client",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Bugs Bunny",
+                  "offset": 13
+                }
+              ],
+              "location": "AdvertisersStepDefs.userClicksClient(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 24204878716,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "user downloads file",
+            "match": {
+              "location": "AdvertisersStepDefs.userDownloadsFile()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 28367775,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "download file and text on the site is equal",
+            "match": {
+              "location": "AdvertisersStepDefs.downloadFileAndTextOnTheSiteIsEqual()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 7602942315,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "site is opened",
+            "match": {
+              "location": "MyStepdefs.siteIsOpened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 26674663,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user is already logged in",
+            "match": {
+              "location": "MyStepdefs.userIsAlreadyLoggedIn()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 43,
+        "name": "Check files for Top level clients",
+        "description": "",
+        "id": "check-files;check-files-for-top-level-clients;;6",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 518249383,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "user clicks Top level clients block",
+            "match": {
+              "location": "AdvertisersStepDefs.userClicksTopLevelClientsBlock()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 217025664,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "user clicks \"Sasha Grey\" Client",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Sasha Grey",
+                  "offset": 13
+                }
+              ],
+              "location": "AdvertisersStepDefs.userClicksClient(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 22282840520,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "user downloads file",
+            "match": {
+              "location": "AdvertisersStepDefs.userDownloadsFile()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.AssertionError: expected [Sasha Grey (born Marina Ann Hantzis,March 14, 1988)is an American actress, model, musician, and writer.Grey began her acting career in the adult film industry,winning 15 awards for her work between 2007 and 2010,including the AVN Award for Female Performer of the Year in 2008.In 2011, she published a photographic book called NeüSex about her time as an adult actor.Grey has been featured in music videos,documentaries,advertising campaigns,artworks,and magazines. After her 2009feature film debut as the lead in Steven Soderbergh\u0027sThe Girlfriend Experience, she starred in independentfilms including Open Windows and the Canadian blackcomedy horror film Smash Cut and the horror filmWould You Rather. In 2011, she played a fictionalizedversion of herself in the HBO comedy-drama series Entourage.Grey was a co-founder,singer, and writer ofaTelecine,an industrialmusic band. She is the author ofThe Juliette Society trilogy of novels and also writes, directs,and co-produces films and music videos.Grey – whose original name is Marina Ann Hantzis –was born in North Highlands, California into a working-classfamily. Her father was a Greek-American who worked as amechanic and died in June 2015. Her mother is of English,Irish, and Polish descent.Grey\u0027s parents divorced beforeshe started middle school and she was subsequently raised by her mother, who remarried in 2000. She was raised as an adherent of Catholicism.Grey attended four high schools – including Highlands High in Sacramento,California  – and was unhappy in each one,though she graduated a yearearly at the age of 17. In late 2005, she attendedSacramento City College and took classes in film, dance, and acting.[She waited tables at a steakhouse until March 2006 and saved$7,000 for a move to Los Angeles.] but found [Timothy Donald Cook (born November 1, 1960) is an American business executive and industrial engineer.Cook is the chief executive officer of Apple Inc., and previously served as the company\u0027s chiefoperating officer under its cofounder Steve Jobs.Cook joined Apple in March 1998 as a senior vice president for worldwide operations,and then served as the executive vice president for worldwide sales and operations.He was made the chief executive on August 24, 2011, prior to Jobs\u0027 death in October of that year.During his tenure as the chief executive, he has advocated for the politicalreformation of international and domestic surveillance, cybersecurity, corporatetaxation, American manufacturing, and environmental preservation.In 2014, Cook became the first chief executive of a Fortune 500 company topublicly come out as gay.Cook also serves on the boards of directors of Nike, Inc.,the National Football Foundation,[8] and is a trustee of Duke University.In March 2015, he said he planned to donate his entire stock fortune to charity.]\n\tat org.testng.Assert.fail(Assert.java:96)\n\tat org.testng.Assert.failNotEquals(Assert.java:776)\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:137)\n\tat org.testng.Assert.assertEquals(Assert.java:118)\n\tat org.testng.Assert.assertEquals(Assert.java:453)\n\tat org.testng.Assert.assertEquals(Assert.java:463)\n\tat stepdefs.AdvertisersStepDefs.downloadFileAndTextOnTheSiteIsEqual(AdvertisersStepDefs.java:93)\n\tat ✽.download file and text on the site is equal(src/test/resources/features/Download files.feature:35)\n",
+              "duration": 30480121,
+              "status": "failed"
+            },
+            "line": 35,
+            "name": "download file and text on the site is equal",
+            "match": {
+              "location": "AdvertisersStepDefs.downloadFileAndTextOnTheSiteIsEqual()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 4316077698,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "site is opened",
+            "match": {
+              "location": "MyStepdefs.siteIsOpened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 478146368,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user is already logged in",
+            "match": {
+              "location": "MyStepdefs.userIsAlreadyLoggedIn()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 44,
+        "name": "Check files for Top level clients",
+        "description": "",
+        "id": "check-files;check-files-for-top-level-clients;;7",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 3519849756,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "user clicks Top level clients block",
+            "match": {
+              "location": "AdvertisersStepDefs.userClicksTopLevelClientsBlock()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 213827125,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "user clicks \"You\" Client",
+            "match": {
+              "arguments": [
+                {
+                  "val": "You",
+                  "offset": 13
+                }
+              ],
+              "location": "AdvertisersStepDefs.userClicksClient(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 21344052281,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "user downloads file",
+            "match": {
+              "location": "AdvertisersStepDefs.userDownloadsFile()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.AssertionError: expected [You are the best selenium automation tester. That\u0027s all!And you\u0027ll win this championship!] but found [You are the best selenium automation tester. That\u0027s all! And you\u0027ll win this championship!]\n\tat org.testng.Assert.fail(Assert.java:96)\n\tat org.testng.Assert.failNotEquals(Assert.java:776)\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:137)\n\tat org.testng.Assert.assertEquals(Assert.java:118)\n\tat org.testng.Assert.assertEquals(Assert.java:453)\n\tat org.testng.Assert.assertEquals(Assert.java:463)\n\tat stepdefs.AdvertisersStepDefs.downloadFileAndTextOnTheSiteIsEqual(AdvertisersStepDefs.java:93)\n\tat ✽.download file and text on the site is equal(src/test/resources/features/Download files.feature:35)\n",
+              "duration": 29356120,
+              "status": "failed"
+            },
+            "line": 35,
+            "name": "download file and text on the site is equal",
+            "match": {
+              "location": "AdvertisersStepDefs.downloadFileAndTextOnTheSiteIsEqual()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 5103870860,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "site is opened",
+            "match": {
+              "location": "MyStepdefs.siteIsOpened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4252630451,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user is already logged in",
+            "match": {
+              "location": "MyStepdefs.userIsAlreadyLoggedIn()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 45,
+        "name": "Check files for Top level clients",
+        "description": "",
+        "id": "check-files;check-files-for-top-level-clients;;8",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 199155302,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "user clicks Top level clients block",
+            "match": {
+              "location": "AdvertisersStepDefs.userClicksTopLevelClientsBlock()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 246990748,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "user clicks \"Leonel Messi\" Client",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Leonel Messi",
+                  "offset": 13
+                }
+              ],
+              "location": "AdvertisersStepDefs.userClicksClient(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 22482828493,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "user downloads file",
+            "match": {
+              "location": "AdvertisersStepDefs.userDownloadsFile()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 90745711,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "download file and text on the site is equal",
+            "match": {
+              "location": "AdvertisersStepDefs.downloadFileAndTextOnTheSiteIsEqual()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 15609723365,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "site is opened",
+            "match": {
+              "location": "MyStepdefs.siteIsOpened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 729987764,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user is already logged in",
+            "match": {
+              "location": "MyStepdefs.userIsAlreadyLoggedIn()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 46,
+        "name": "Check files for Top level clients",
+        "description": "",
+        "id": "check-files;check-files-for-top-level-clients;;9",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 358394587,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "user clicks Top level clients block",
+            "match": {
+              "location": "AdvertisersStepDefs.userClicksTopLevelClientsBlock()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 334188203,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "user clicks \"Tony Stark\" Client",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Tony Stark",
+                  "offset": 13
+                }
+              ],
+              "location": "AdvertisersStepDefs.userClicksClient(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 25317657054,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "user downloads file",
+            "match": {
+              "location": "AdvertisersStepDefs.userDownloadsFile()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.AssertionError: expected [Anthony Edward Stark is a character portrayed by Robert Downey Jr.in the Marvel Cinematic Universe (MCU) film franchise, based onthe Marvel Comics character of the same name and known commonlyby his alter ego, Iron Man. In the films, Stark is an industrialist,genius inventor, hero and former playboy who is CEO of Stark Industries.At the beginning of the series, he is a chief weapons manufacturer for theU.S. military, until he has a change of heart and redirects his technicalknowledge into the creation of mechanized suits of armor which he uses todefend against those that would threaten peace around the world.As of 2019, the character was one of the central figures of the MCU,having appeared in eleven films[N 1] from his introduction in Iron Man,up to Spider-Man: Far From Home. In 2015, the evolution of the characterover the series was described as \"the defining arc of the MarvelCinematic Universe\". In 2018, it was argued that \"no othercharacter goes on as transformative a journey as Iron Man\".The Iron Man character and Downey\u0027s performance has been creditedwith helping to cement the MCU as a multi-billion dollar franchise,with Stark often being considered \"the godfather of the Marvel CinematicUniverse\" and one of the greatest film characters of all timeConcept, creation, and characterizationTony Stark first premiered as a comic book character, inTales of Suspense #39 (cover dated March 1963), a collaborationamong editor and story-plotter Stan Lee, scripter Larry Lieber,story-artist Don Heck, and cover-artist and character-designerJack Kirby. Lee wanted to create the \"quintessential capitalist\",a character that would go against the spirit of the times and Marvel\u0027sreadership. Lee based this playboy\u0027s looks and personality on Howard Hughes,explaining, \"Howard Hughes was one of the most colorful men of our time.He was an inventor, an adventurer, a multi-billionaire, a ladies\u0027 man and finallya nutcase.\" The character\u0027s original costume was a bulky grayarmored suit, replaced by a golden version in the second story(issue #40, April 1963), and redesigned as sleeker,red-and-golden armor in issue #48 (Dec. 1963) by Steve Ditko.Lee and Kirby included Iron Man in The Avengers #1 (Sept. 1963) asa founding member of the superhero team. In the mid-2000s, with anumber of movies having been made from other Marvel propertieslicensed to other studios, Kevin Feige realized that Marvel stillowned the rights to the core members of the Avengers, whichincluded Iron Man. Feige, a self-professed \"fanboy\", envisionedcreating a shared universe just as creators Stan Lee and Jack Kirbyhad done with their comic books in the early 1960s.Jon Favreau, who was selected to direct the first Iron Man film,felt Downey\u0027s past made him an appropriate choice for the part,and that the actor could make Stark a \"likable asshole,\"but also depict an authentic emotional journey once he won over the audience.Ultimately though, Downey ended up being the choice the studiomade for the first character in their ever expansive cinematicuniverse. Favreau was also attracted to Downey from hisperformance in Kiss Kiss Bang Bang, with Downey frequentlyconversing with that film\u0027s director, Shane Black, aboutthe script and dialogue in Iron Man.CharacterizationDowney had an office next to Favreau during pre-production,which allowed him greater involvement in the screenwritingprocess,especially adding humor to the film.Downey explained, \"What I usually hate about thesemovies when suddenly the guy that you were digging turnsinto Dudley Do-Right, and then you\u0027re supposed to buy into allhis \u0027Let\u0027s go do some good!\u0027 That Eliot Ness-in-a-cape-type thing.What was really important to me was to not have him change somuch that he\u0027s unrecognizable. When someone used to be aschmuck and they\u0027re not anymore, hopefully they still havea sense of humor.\"To prepare, Downey spent five days aweek weight training and practiced martial arts to get intoshape,which he said benefited him because \"it\u0027s hardnot to have a personality meltdown after about severalhours in that suit. I\u0027m calling up every therapeutic momentI can think of to just get through the day.\"In Iron Man 2, Stark struggles to keep his technology outof the government\u0027s hands. Downey and Favreau, who had beenhanded a script and worked from it on the first movie,conceived of the film\u0027s story themselves.On Starkbeing a hero, Downey said \"It\u0027s kind of heroic, but reallykind of on his own behalf. So I think there\u0027s probably abit of an imposter complex and no sooner has he said, \u0027Iam Iron Man –\u0027 that he\u0027s now really wondering what thatmeans. If you have all this cushion like he does and thepublic is on your side and you have immense wealth andpower, I think he\u0027s way too insulated to be okay.\"The Avengers introduced Stark\u0027s role as one of an ensembleof heroes who must come together to defend the Earthfrom an alien invasion led by the god Loki. Downeyinitially pushed director Joss Whedon to make Starkthe lead of the 2012 Avengers film: \"Well, I said,\u0027I need to be in the opening sequence. I don\u0027t knowwhat you\u0027re thinking, but Tony needs to drive thisthing.\u0027 He was like, \u0027Okay, let\u0027s try that.\u0027 We triedit and it didn\u0027t work, because this is a differentsort of thing, the story and the idea and the theme isthe theme, and everybody is just an arm of the octopus.\"About the character\u0027s evolution from previous films, Downey said, \"In Iron Man, which was an origin story, he was his own epiphany and redemption of sorts. Iron Man 2 is all about not being an island, dealing with legacy issues and making space for others. . . In The Avengers, he\u0027s throwing it down with the others\".[21] At the climax of the film, Stark guides a nuclear missile through an interstellar portal to destroy the main alien vessel, demonstrating a willingness to sacrifice his life to save the Earth.Robert Downey Jr. at Comic Con 2007, after being cast in Iron Man.In Iron Man 3, Stark struggles to come to terms with his near-deathexperience in The Avengers,suffering from anxiety attacks.On making a third Iron Man film, Downey said, \"My sense of it isthat we need to leave it all on the field—whatever that means inthe end. You can pick several different points of departure forthat.\" On following up The Avengers, Downey said they \"triedto be practical, in a post-Avengers world. What are his challenges now?What are some limitations that might be placed on him? And what sortof threat would have him, as usual, ignore those limitations?\"Screenwriter Drew Pearce compared Stark in Iron Man 3 to anAmerican James Bond for both being \"heroes with a sense ofdanger to them, and unpredictability\" even if Stark was a\"free agent\" instead of an authority figure like Bond.He also likened Tony to the protagonists of 1970s filmssuch as The French Connection, where \"the idiosyncrasiesof the heroes is what made them exciting.\"In Avengers: Age of Ultron, Stark has become the benefactorof the Avengers.On how his character evolvesafter the events of Iron Man 3, Downey said, \"I think herealizes that tweaking and making all the suits in theworld—which is what he has been doing—still didn\u0027t workfor that thing of his tour of duty that left him a littlePTSD. So his focus is more on how can we make it so thatthere\u0027s no problem to begin with. That, you know, there\u0027sa bouncer at our planet\u0027s rope. That\u0027s the big idea.\"The events of Age of Ultron lead directly into the conflictof Captain America: Civil War, in which Stark leads a factionof Avengers in support of regulation of individuals with superpowers, and is the main antagonist of the film;Anthony Russo said that Stark\u0027s egomania allowed the writers\"to bring him to a point in his life where he was willing tosubmit to an authority, where he felt it was the right thingto do.\" Joe Russo added that because of the visions Starksaw in Age of Ultron, he now has a guilt complexwhich \"drives him to make very specific decisions\",calling his emotional arc \"very complicated\".Downey\u0027s personal trainer Eric Oram stated that thetrick to pitting Rogers against Stark, \"is to showIron Man using the \u0027minimum force\u0027 necessary to winthe fight\". Marvel initially wanted Downey\u0027s partto be smaller, but \"Downey wanted Stark to have a moresubstantial role in the film\u0027s plot.\" Variety noted thatDowney would receive $40 million plus backend for his participation,as well as an additional payout if the film outperformed The WinterSoldier, as Marvel would attribute that success to Downey\u0027s presence.In Spider-Man: Homecoming, Stark is Peter Parker\u0027s mentor and is thecreator of the U.S. Department of Damage Control. Sony PicturesMotion Picture Group chairman Thomas Rothman noted that, beyond thecommercial advantage of featuring Downey in the film, the inclusion ofStark was important due to the relationship established between him andParker in Captain America: Civil War. Watts noted that after Stark\u0027sactions in Civil War, introducing Parker to life as an Avenger, thereare \"a lot of repercussions to that. Is it a first step towards Tonyas some sort of mentor figure? Is he comfortable with that?\"Co-writer Jonathan Goldstein compared Stark to Ethan Hawke\u0027s father character in Boyhood.Downey reprised the role in Avengers: Infinity War (2018)and Avengers: Endgame (2019). Iron Man 3 directorShane Black stated in March 2013 that \"There has been alot of discussion about it: \u0027Is this the last Iron Manfor Robert ?\u0027 Something tells me that it willnot be the case, and  will be seen in a fourth, or fifth.\"Marvel Studios president Kevin Feige said that the characterof Stark would continue to be featured in the MarvelCinematic Universe regardless of Downey\u0027s involvement.Also in March, Downey said he was open to extendinghis contract, stating he feels \"there\u0027s a couple otherthings we\u0027ve gotta do\" with the character.In June 2013, when Downey signed on to return as Iron Manin Avengers: Age of Ultron, he also signed on for athird Avengers film. In a July 2014 interview duringthe filming of Avengers: Age of Ultron, Downey expressedhis interest in continuing to play Iron Man. \"It\u0027s down toKevin [Feige] and Ike [Perlmutter, CEO of Marvel Entertainment]and Disney to come to us with what the proposal is, and that’son us to agree or disagree,\" Downey said. \"When things aregoing great, there\u0027s a lot of agreement.\" He added, \"It\u0027sthat thing of: Why give up the belt when it feels like youcan barely get jabbed?\" In April 2016, Downey expressedopenness to appearing in a potential fourth Iron Man film,saying \"I could do one more.\" Downey\u0027s Marvel contractexpired following Avengers: Endgame, where Stark is killed off.] but found [undefined]\n\tat org.testng.Assert.fail(Assert.java:96)\n\tat org.testng.Assert.failNotEquals(Assert.java:776)\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:137)\n\tat org.testng.Assert.assertEquals(Assert.java:118)\n\tat org.testng.Assert.assertEquals(Assert.java:453)\n\tat org.testng.Assert.assertEquals(Assert.java:463)\n\tat stepdefs.AdvertisersStepDefs.downloadFileAndTextOnTheSiteIsEqual(AdvertisersStepDefs.java:93)\n\tat ✽.download file and text on the site is equal(src/test/resources/features/Download files.feature:35)\n",
+              "duration": 28826803,
+              "status": "failed"
+            },
+            "line": 35,
+            "name": "download file and text on the site is equal",
+            "match": {
+              "location": "AdvertisersStepDefs.downloadFileAndTextOnTheSiteIsEqual()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 13080869233,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "site is opened",
+            "match": {
+              "location": "MyStepdefs.siteIsOpened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 15701577,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user is already logged in",
+            "match": {
+              "location": "MyStepdefs.userIsAlreadyLoggedIn()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 47,
+        "name": "Check files for Top level clients",
+        "description": "",
+        "id": "check-files;check-files-for-top-level-clients;;10",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 1004805673,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "user clicks Top level clients block",
+            "match": {
+              "location": "AdvertisersStepDefs.userClicksTopLevelClientsBlock()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "error_message": "Element not found {By.xpath: //button[contains(text(),\u0027Top level clients\u0027)]/..//div[@class\u003d\u0027sub-tree-element\u0027]//button.findBy(text \u0027Elon Mask\u0027)}\nExpected: visible or transparent: visible or have css value opacity\u003d0\nScreenshot: file:/home/khomenkoalina/IdeaProjects/Parallel/build/reports/tests/1575284805184.1.png\nPage source: file:/home/khomenkoalina/IdeaProjects/Parallel/build/reports/tests/1575284805184.1.html\nTimeout: 20 s.\nCaused by: Element not found {By.xpath: //button[contains(text(),\u0027Top level clients\u0027)]/..//div[@class\u003d\u0027sub-tree-element\u0027]//button.findBy(text \u0027Elon Mask\u0027)}\nExpected: text \u0027Elon Mask\u0027\nScreenshot: null\nTimeout: 0 ms.\n\tat com.codeborne.selenide.impl.WebElementSource.createElementNotFoundError(WebElementSource.java:37)\n\tat com.codeborne.selenide.impl.CollectionElementByCondition.createElementNotFoundError(CollectionElementByCondition.java:59)\n\tat com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:65)\n\tat com.codeborne.selenide.impl.WebElementSource.findAndAssertElementIsInteractable(WebElementSource.java:87)\n\tat com.codeborne.selenide.commands.Click.execute(Click.java:13)\n\tat com.codeborne.selenide.commands.Click.execute(Click.java:9)\n\tat com.codeborne.selenide.commands.Commands.execute(Commands.java:145)\n\tat com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:99)\n\tat com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:65)\n\tat com.sun.proxy.$Proxy16.click(Unknown Source)\n\tat stepdefs.AdvertisersStepDefs.userClicksClient(AdvertisersStepDefs.java:104)\n\tat ✽.user clicks \"Elon Mask\" Client(src/test/resources/features/Download files.feature:33)\nCaused by: Element not found {By.xpath: //button[contains(text(),\u0027Top level clients\u0027)]/..//div[@class\u003d\u0027sub-tree-element\u0027]//button.findBy(text \u0027Elon Mask\u0027)}\nExpected: text \u0027Elon Mask\u0027\nScreenshot: null\nTimeout: 0 ms.\n\tat com.codeborne.selenide.impl.CollectionElementByCondition.getWebElement(CollectionElementByCondition.java:45)\n\tat com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:50)\n\tat com.codeborne.selenide.impl.WebElementSource.findAndAssertElementIsInteractable(WebElementSource.java:87)\n\tat com.codeborne.selenide.commands.Click.execute(Click.java:13)\n\tat com.codeborne.selenide.commands.Click.execute(Click.java:9)\n\tat com.codeborne.selenide.commands.Commands.execute(Commands.java:145)\n\tat com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:99)\n\tat com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:65)\n\tat com.sun.proxy.$Proxy16.click(Unknown Source)\n\tat stepdefs.AdvertisersStepDefs.userClicksClient(AdvertisersStepDefs.java:104)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat cucumber.runtime.Utils$1.call(Utils.java:26)\n\tat cucumber.runtime.Timeout.timeout(Timeout.java:16)\n\tat cucumber.runtime.Utils.invoke(Utils.java:20)\n\tat cucumber.runtime.java.JavaStepDefinition.execute(JavaStepDefinition.java:48)\n\tat cucumber.runner.PickleStepDefinitionMatch.runStep(PickleStepDefinitionMatch.java:50)\n\tat cucumber.runner.TestStep.executeStep(TestStep.java:63)\n\tat cucumber.runner.TestStep.run(TestStep.java:49)\n\tat cucumber.runner.PickleStepTestStep.run(PickleStepTestStep.java:43)\n\tat cucumber.runner.TestCase.run(TestCase.java:44)\n\tat cucumber.runner.Runner.runPickle(Runner.java:40)\n\tat cucumber.api.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:68)\n\tat cucumber.api.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:22)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)\n\tat org.testng.internal.Invoker.invokeMethod(Invoker.java:583)\n\tat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)\n\tat org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)\n\tat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)\n\tat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)\n\tat org.testng.TestRunner.privateRun(TestRunner.java:648)\n\tat org.testng.TestRunner.run(TestRunner.java:505)\n\tat org.testng.SuiteRunner.runTest(SuiteRunner.java:455)\n\tat org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)\n\tat org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)\n\tat org.testng.SuiteRunner.run(SuiteRunner.java:364)\n\tat org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)\n\tat org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)\n\tat org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)\n\tat org.testng.TestNG.runSuitesLocally(TestNG.java:1137)\n\tat org.testng.TestNG.runSuites(TestNG.java:1049)\n\tat org.testng.TestNG.run(TestNG.java:1017)\n\tat org.testng.IDEARemoteTestNG.run(IDEARemoteTestNG.java:72)\n\tat org.testng.RemoteTestNGStarter.main(RemoteTestNGStarter.java:127)\n",
+              "duration": 21417601249,
+              "status": "failed"
+            },
+            "line": 33,
+            "name": "user clicks \"Elon Mask\" Client",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Elon Mask",
+                  "offset": 13
+                }
+              ],
+              "location": "AdvertisersStepDefs.userClicksClient(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 6227,
+              "status": "skipped"
+            },
+            "line": 34,
+            "name": "user downloads file",
+            "match": {
+              "location": "AdvertisersStepDefs.userDownloadsFile()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2242,
+              "status": "skipped"
+            },
+            "line": 35,
+            "name": "download file and text on the site is equal",
+            "match": {
+              "location": "AdvertisersStepDefs.downloadFileAndTextOnTheSiteIsEqual()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@test"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 44947927205,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "site is opened",
+            "match": {
+              "location": "MyStepdefs.siteIsOpened()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3257283560,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "user is already logged in",
+            "match": {
+              "location": "MyStepdefs.userIsAlreadyLoggedIn()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "line": 48,
+        "name": "Check files for Top level clients",
+        "description": "",
+        "id": "check-files;check-files-for-top-level-clients;;11",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 193078477,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "user clicks Top level clients block",
+            "match": {
+              "location": "AdvertisersStepDefs.userClicksTopLevelClientsBlock()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 272557081,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "user clicks \"Darth Vader\" Client",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Darth Vader",
+                  "offset": 13
+                }
+              ],
+              "location": "AdvertisersStepDefs.userClicksClient(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 21664904401,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "user downloads file",
+            "match": {
+              "location": "AdvertisersStepDefs.userDownloadsFile()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.AssertionError: expected [Darth Vader is a fictional character in the Star Wars franchise.He is a primary antagonist in the original trilogy, but,as Anakin Skywalker, is the main protagonist of theprequel trilogy. Star Wars creator George Lucas hascollectively referred to the first six episodic filmsof the franchise as \"the tragedy of Darth Vader\".Originally a Jedi prophesied to bring balance to theForce, Anakin Skywalker is lured to the dark side ofthe Force by Palpatine and becomes a Sith Lord. Afterfighting a lightsaber battle with his former mentorObi-Wan Kenobi in which he is dismembered, Vader istransformed into a cyborg. He then serves the GalacticEmpire as Darth Vader until he redeems himself bysaving his son, Luke Skywalker, and seemingly killingPalpatine, sacrificing his own life in the process.He is also the father of Princess Leia, the secrethusband of Padmé Amidala, and grandfather of KyloRen, the main villain of the sequel trilogy.The character has been portrayed by numerous actors.His cinematic appearances span the first six StarWars films, as well as Rogue One, and he is referencedin both The Force Awakens and The Last Jedi.He also appears in television series (most substantiallyThe Clone Wars) and numerous iterations of the Star WarsExpanded Universe, including video games, novels, and comic books.Darth Vader has become one of the most iconic villains inpopular culture, and has been listed among the greatestvillains and fictional characters ever. The AmericanFilm Institute listed him as the third greatest movie villainin cinema history on 100 Years... 100 Heroes and Villains,behind Hannibal Lecter and Norman Bates. His role as atragic hero in the prequel trilogy was met with positive reviews] but found [Darth Vader is a fictional character in the Star Wars franchise.He is a primary antagonist in the original trilogy, but,as Anakin Skywalker, is the main protagonist of theprequel trilogy. Star Wars creator George Lucas hascollectively referred to the first six episodic filmsof the franchise as \"the tragedy of Darth Vader\".Originally a Jedi prophesied to bring balance to theForce, Anakin Skywalker is lured to the dark side ofthe Force by Palpatine and becomes a Sith Lord. Afterfighting a lightsaber battle with his former mentorObi-Wan Kenobi in which he is dismembered, Vader istransformed into a cyborg. He then serves the GalacticEmpire as Darth Vader until he redeems himself bysaving his son, Luke Skywalker, and seemingly killingPalpatine, sacrificing his own life in the process.He is also the father of Princess Leia, the secrethusband of Padmé Amidala, and grandfather of KyloRen, the main villain of the sequel trilogy.The character has been portrayed by numerous actors.His cinematic appearances span the first six StarWars films, as well as Rogue One, and he is referencedin both The Force Awakens and The Last Jedi.He also appears in television series (most substantially The Clone Wars) and numerous iterations of the Star Wars Expanded Universe, including video games, novels, and comic books.Darth Vader has become one of the most iconic villains in popular culture, and has been listed among the greatest villains and fictional characters ever. The American Film Institute listed him as the third greatest movie villain in cinema history on 100 Years... 100 Heroes and Villains, behind Hannibal Lecter and Norman Bates. His role as a tragic hero in the prequel trilogy was met with positive reviews]\n\tat org.testng.Assert.fail(Assert.java:96)\n\tat org.testng.Assert.failNotEquals(Assert.java:776)\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:137)\n\tat org.testng.Assert.assertEquals(Assert.java:118)\n\tat org.testng.Assert.assertEquals(Assert.java:453)\n\tat org.testng.Assert.assertEquals(Assert.java:463)\n\tat stepdefs.AdvertisersStepDefs.downloadFileAndTextOnTheSiteIsEqual(AdvertisersStepDefs.java:93)\n\tat ✽.download file and text on the site is equal(src/test/resources/features/Download files.feature:35)\n",
+              "duration": 63243789,
+              "status": "failed"
+            },
+            "line": 35,
+            "name": "download file and text on the site is equal",
+            "match": {
+              "location": "AdvertisersStepDefs.downloadFileAndTextOnTheSiteIsEqual()"
+            },
+            "keyword": "Then "
           }
         ],
         "tags": [
@@ -84,11 +1030,11 @@
         ]
       }
     ],
-    "name": "Article functionality",
-    "description": "  As user I want to get opportunity to get actual info about person, download person info and get person photo",
-    "id": "article-functionality",
+    "name": "Check files",
+    "description": "",
+    "id": "check-files",
     "keyword": "Feature",
-    "uri": "src/test/resources/features/Advertisers.feature",
+    "uri": "src/test/resources/features/Download files.feature",
     "tags": []
   }
 ]

@@ -6,7 +6,6 @@ Background:
   #And user is authorized
 
 
-  @test
   Scenario: Advertiser block is shown
   When user clicks Advertiser block
     Then Advertisers list is shown
