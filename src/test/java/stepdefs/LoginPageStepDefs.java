@@ -16,6 +16,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.Assert;
+import pages.LoadProperties;
 import pages.LoginPage;
 import pages.MainPage;
 
@@ -29,67 +30,42 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPageStepDefs {
     LoginPage loginPage;
-        @Given("^browser is opened$")
-        public void openBrowser(){
-
-            Configuration.timeout=20000;
-            Configuration.fileDownload= FileDownloadMode.PROXY;
-            Configuration.proxyEnabled=true;
-
-        }
+    Properties properties = new LoadProperties().init();
+    String url = properties.getProperty("url");
 
 
-    @And("^site is opened$")
+    @Given("^site is opened$")
     public void siteIsOpened() {
+        Configuration.startMaximized = true;
+        Configuration.timeout = Integer.parseInt(properties.getProperty("timeout.in.seconds")) * 1000;
 
-
-    //  Configuration.browser = "firefox";
-
-
-        if(WebDriverRunner.isChrome()){
-
-
-              WebDriverRunner.setWebDriver(new ChromeDriver(configureChromeDownloadPath()));
-        }
-
-        if(WebDriverRunner.isFirefox())
-        {
-            WebDriverRunner.setWebDriver(new FirefoxDriver(configureFirefoxDownloadSettings()));
-
-            //   Configuration.browserCapabilities;
-
-    }
-      Configuration.startMaximized=true;
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-
-        Configuration.timeout=20000;
-
-
-        open("http://localhost:8080/");
+        open(url);
 
     }
 
-    @When("^user inputs correct login$")
-    public void userInputsCorrectLogin() {
+    @When("^user inputs ([^\"]*) login$")
+    public void userInputsCorrectLogin(String loginType) {
         loginPage = page(LoginPage.class);
-        loginPage.inputLogin("test");
+        loginPage.inputLogin(loginType);
+
     }
 
-    @And("^user inputs correct password$")
-    public void userInputsCorrectPassword() {
-       loginPage.inputPassword("test");
+    @And("^user inputs ([^\"]*) password$")
+    public void userInputsCorrectPassword(String pass) {
+        loginPage.inputPassword(pass);
     }
 
     @And("^user clicks Login button$")
-    public void userClicksLoginButton(){
+    public void userClicksLoginButton() {
         loginPage.moveCursorToButton();
         loginPage.clickSighInButton();
     }
 
     @Then("^main page is opened$")
-    public void mainPageIsOpened(){MainPage mainPage = page(MainPage.class);
-    mainPage.waitForPageLoad();}
-
+    public void mainPageIsOpened() {
+        MainPage mainPage = page(MainPage.class);
+        mainPage.waitForPageLoad();
+    }
 
 
     @And("^login page is shown$")
@@ -99,10 +75,9 @@ public class LoginPageStepDefs {
 
     @And("^user is already logged in$")
     public void userIsAlreadyLoggedIn() {
-        Cookie cookies = new Cookie("secret","IAmSuperSeleniumMaster");
+        Cookie cookies = new Cookie("secret", properties.getProperty("authorized.cookie"));
         WebDriverRunner.getWebDriver().manage().addCookie(cookies);
         refresh();
-
 
 
     }
@@ -113,10 +88,11 @@ public class LoginPageStepDefs {
 
 
     }
+
     @And("^user is authorized$")
     public void userIsAuthorized() throws Throwable {
-        userInputsCorrectLogin();
-        userInputsCorrectPassword();
+        userInputsCorrectLogin("correct");
+        userInputsCorrectPassword("correct");
         userClicksLoginButton();
         userAcceptsStAlert();
         userAcceptsStAlert();
@@ -130,7 +106,6 @@ public class LoginPageStepDefs {
     }
 
 
-
     @Then("^login page is opened$")
     public void loginPageIsOpened() throws Throwable {
         loginPageIsShown();
@@ -138,25 +113,23 @@ public class LoginPageStepDefs {
 
     @Then("^main page isn't opened$")
     public void mainPageIsnTOpened() throws Throwable {
-       try {
-           loginPage.loginForm.waitUntil(Condition.disappear, 5000);
-       }catch(AssertionError error){
-       }
-       }
+        try {
+            loginPage.loginForm.waitUntil(Condition.disappear, 5000);
+        } catch (AssertionError error) {
+        }
+    }
 
     @When("^user inputs <login> login$")
-    public void userInputsLoginLogin() throws Throwable {
+    public void userInputsLogin() throws Throwable {
 
     }
 
-    public FirefoxOptions configureFirefoxDownloadSettings(){
+    public FirefoxOptions configureFirefoxDownloadSettings() {
 
         System.setProperty("webdriver.gecko.driver", "drivers/Firefox/geckodriver");
 
-        // Creating firefox profile
         FirefoxProfile profile = new FirefoxProfile();
 
-        // Instructing firefox to use custom download location
         profile.setPreference("browser.download.folderList", 2);
 
         // Setting custom download directory
@@ -174,13 +147,13 @@ public class LoginPageStepDefs {
         return options;
     }
 
-    public ChromeOptions configureChromeDownloadPath(){
+    public ChromeOptions configureChromeDownloadPath() {
 
         DesiredCapabilities cap = DesiredCapabilities.chrome();
 
         System.setProperty("webdriver.chrome.driver", "drivers/Chrome/chromedriver");
         HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
-        chromePrefs.put("download.default_directory", System.getProperty("user.dir") + File.separator + "build"+File.separator+"downloads"+File.separator);
+        chromePrefs.put("download.default_directory", System.getProperty("user.dir") + File.separator + "build" + File.separator + "downloads" + File.separator);
         chromePrefs.put("profile.default_content_settings.popups", 0);
         chromePrefs.put("download.directory_upgrade", true);
         System.out.println(chromePrefs);
@@ -198,5 +171,32 @@ public class LoginPageStepDefs {
         //   Configuration.browserCapabilities=cap;
 
         return options;
+    }
+
+    @When("^user clicks login field$")
+    public void userClicksLoginField() throws Throwable {
+        loginPage.clickLoginFiled();
+    }
+
+    @And("^user clicks password field$")
+    public void userClicksPasswordField() throws Throwable {
+        loginPage.clickPasswordField();
+    }
+
+    @Then("^howerMeFaster button is disabled$")
+    public void tratataButtonIsDisabled() throws Throwable {
+        loginPage.checkhowerMeFasterButton();
+    }
+
+
+    @Given("^custom browser is configured$")
+    public void customBrowserIsConfigured() throws Throwable {
+        if (WebDriverRunner.isChrome()) {
+            WebDriverRunner.setWebDriver(new ChromeDriver(configureChromeDownloadPath()));
+        }
+        if (WebDriverRunner.isFirefox()) {
+            WebDriverRunner.setWebDriver(new FirefoxDriver(configureFirefoxDownloadSettings()));
+
+        }
     }
 }

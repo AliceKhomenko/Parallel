@@ -6,6 +6,9 @@ import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.SelenideWait;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.testng.Assert;
+
+import java.util.Properties;
 
 import static com.codeborne.selenide.Selenide.Wait;
 
@@ -31,16 +34,32 @@ public class LoginPage {
     @FindBy(how=How.CSS,using="img[src='sign.png']")
     private SelenideElement signInButton;
 
+    private Properties properties = new LoadProperties().init();
 
 
-    public void inputLogin(String login){
+
+    public void inputLogin(String loginType){
+
         loginBlock.click();
-        loginField.setValue(login);
+        switch(loginType) {
+            case "correct" :loginField.setValue(properties.getProperty("correct.login"));break;
+            case "incorrect": loginField.setValue(properties.getProperty("incorrect.login"));break;
+            default:
+                Assert.fail("Unknown parameter for login");
+        }
     }
 
-    public void inputPassword(String password){
+    public void inputPassword(String passwordType){
+
         passwordBlock.click();
-        passwordField.setValue(password);
+
+        switch(passwordType) {
+            case "correct" :passwordField.setValue(properties.getProperty("correct.password"));break;
+            case "incorrect": passwordField.setValue(properties.getProperty("incorrect.password"));break;
+            default:
+                Assert.fail("Unknown parameter for password");
+        }
+
     }
 
     public void moveCursorToButton(){
@@ -55,5 +74,17 @@ public class LoginPage {
 
     public void isShown() {
 
+    }
+
+    public void clickLoginFiled(){
+        loginBlock.click();
+    }
+
+    public void clickPasswordField(){
+        passwordBlock.click();
+    }
+
+    public void checkhowerMeFasterButton() {
+        howerMeFasterButton.should(Condition.disabled);
     }
 }

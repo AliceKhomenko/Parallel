@@ -33,7 +33,7 @@ public class MainPageStepDefs {
 
     @Then("^Advertisers list is shown$")
     public void advertisersListIsShown() {
-        List<String>expectedList = mainPage.getExpectedAdvertiserList();
+        List<String> expectedList = mainPage.getExpectedAdvertiserList();
         Assert.assertEquals(expectedList, mainPage.advertisersNames());
 
         // card.changeScale(100);
@@ -49,7 +49,7 @@ public class MainPageStepDefs {
 
     @Then("^Publishers list is shown$")
     public void publishersListIsShown() throws Throwable {
-        List<String>expectedList = mainPage.getExpectedPublisherList();
+        List<String> expectedList = mainPage.getExpectedPublisherList();
         Assert.assertEquals(expectedList, mainPage.publishersNames());
 
     }
@@ -62,7 +62,7 @@ public class MainPageStepDefs {
 
     @Then("^Top level clients list is shown$")
     public void topLevelClientsListIsShown() throws Throwable {
-        List<String>expectedList = mainPage.getExpectedTopLevelClientsList();
+        List<String> expectedList = mainPage.getExpectedTopLevelClientsList();
 
         Assert.assertEquals(expectedList, mainPage.topLevelClientNames());
     }
@@ -125,7 +125,6 @@ public class MainPageStepDefs {
     }
 
 
-
     @Then("^Advertisers list isn't shown$")
     public void advertisersListIsnTShown() throws Throwable {
         mainPage.waitUntilSubTreeBlockIsHidden("Advetisers");
@@ -134,13 +133,13 @@ public class MainPageStepDefs {
 
     @And("^\"([^\"]*)\" is added to cookies$")
     public void isAddedToCookies(String value) throws Throwable {
-        Assert.assertTrue(mainPage.checkCookie("notSavedOpened",value));
+        Assert.assertTrue(mainPage.checkCookie("notSavedOpened", value));
 
     }
 
     @And("^\"([^\"]*)\" isn't existed in cookie$")
     public void isnTExistedInCookie(String value) throws Throwable {
-        Assert.assertFalse(mainPage.checkCookie("notSavedOpened",value));
+        Assert.assertFalse(mainPage.checkCookie("notSavedOpened", value));
 
 
     }
@@ -155,4 +154,23 @@ public class MainPageStepDefs {
     public void topLevelClientsListIsnTShown() throws Throwable {
         mainPage.waitUntilSubTreeBlockIsHidden("Top level clients");
     }
+
+    @And("^card image is shown$")
+    public void cardImageIsShown() throws Throwable {
+        Assert.assertTrue(card.checkImage());
+
+    }
+
+    @Then("^card title is \"([^\"]*)\"$")
+    public void cardTitleIs(String title) throws Throwable {
+        Assert.assertTrue(card.checkTitle(title));
+    }
+
+    @And("^card image is on <([^\"]*)>$")
+    public void cardImageIsOn(String src) throws Throwable {
+       Assert.assertTrue(card.checkImageSrc(src));
+    }
+
+
+
 }

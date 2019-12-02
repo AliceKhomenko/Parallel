@@ -1,6 +1,8 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
@@ -95,6 +97,27 @@ public class Card {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean checkImage() {
+            boolean loaded = (boolean) ((JavascriptExecutor) WebDriverRunner.getWebDriver()).executeScript("return arguments[0].complete", cardImage);
+
+            return loaded;
+    }
+
+    public boolean checkTitle(String title) {
+        return cardTitle.equals(title);
+    }
+
+    public boolean checkImageSrc(String src) {
+        return  cardImage.getAttribute("src").equals(src);
+    }
+
+    public void scrollTextArea(){
+       JavascriptExecutor js =(JavascriptExecutor)WebDriverRunner.getWebDriver();
+       js.executeScript("var textarea = document.querySelector('textarea');\n" +
+                "textarea.scrollTop = textarea.scrollHeight;");
+
     }
 }
 

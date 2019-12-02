@@ -37,21 +37,9 @@ public class MainPage {
     @FindBy(xpath = "//button[contains(text(),'Top level clients')]/..//div[@class='sub-tree-element']//button")
     public ElementsCollection topLevelClients;
 
-    private Properties credentials;
-    private void loadProperties(){
-        FileInputStream input = null;
-        try {
-            input = new FileInputStream("src/test/resources/configuration.properties");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        credentials = new Properties();
-        try {
-            credentials.load(input);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    private     Properties properties = new LoadProperties().init();
+
+
 
     public void clickAdverisers() {
         advertisersButton.click();
@@ -112,24 +100,21 @@ public class MainPage {
     }
 
     public List<String> getExpectedAdvertiserList() {
-        loadProperties();
-        String adverString = credentials.getProperty("advertisers.list");
+        String adverString = properties.getProperty("advertisers.list");
         List <String> result = Arrays.asList(adverString.split(","));
         Collections.sort(result);
         return result;
     }
 
     public List<String> getExpectedPublisherList() {
-        loadProperties();
-        String pubString = credentials.getProperty("publishers.list");
+        String pubString = properties.getProperty("publishers.list");
         List <String> result = Arrays.asList(pubString.split(","));
         Collections.sort(result);
         return result;
     }
 
     public List<String> getExpectedTopLevelClientsList() {
-        loadProperties();
-        String clientString = credentials.getProperty("top.level.clients.list");
+        String clientString = properties.getProperty("top.level.clients.list");
         List <String> result = Arrays.asList(clientString.split(","));
         Collections.sort(result);
         return result;
