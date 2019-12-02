@@ -6,14 +6,7 @@ Background:
   #And user is authorized
 
 
-  Scenario: Advertiser block is shown
-  When user clicks Advertiser block
-    Then Advertisers list is shown
-    And Advertiser is added to cookies
 
-    Scenario: Hide advertiser block
-      When user double clicks Advertiser block
-      Then advertisers list isn't shown
 
 
 

@@ -3,11 +3,15 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.*;
 
+import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.screenshot;
 
 public class MainPage {
@@ -28,12 +32,26 @@ public class MainPage {
     public ElementsCollection advertisers;
 
     @FindBy(xpath = "//button[contains(text(),'Publishers')]/..//div[@class='sub-tree-element']//button")
-    private ElementsCollection publishers;
+    public ElementsCollection publishers;
 
     @FindBy(xpath = "//button[contains(text(),'Top level clients')]/..//div[@class='sub-tree-element']//button")
-    private ElementsCollection topLevelClients;
+    public ElementsCollection topLevelClients;
 
-
+    private Properties credentials;
+    private void loadProperties(){
+        FileInputStream input = null;
+        try {
+            input = new FileInputStream("src/test/resources/configuration.properties");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        credentials = new Properties();
+        try {
+            credentials.load(input);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void clickAdverisers() {
         advertisersButton.click();
@@ -52,7 +70,7 @@ public class MainPage {
         for(SelenideElement element: advertisers){
             advertiserNames.add(element.getText());
         }
-        System.out.println(advertiserNames);
+        Collections.sort(advertiserNames);
         return advertiserNames;
     }
 
@@ -66,15 +84,17 @@ public class MainPage {
             result.add(element.getText());
         }
         System.out.println(result);
+        Collections.sort(result);
         return result;
     }
 
-    public List<String> topLevelNames() {
+    public List<String> topLevelClientNames() {
         List<String> result = new ArrayList<>();
-        for(SelenideElement element: publishers){
+        for(SelenideElement element: topLevelClients){
             result.add(element.getText());
         }
         System.out.println(result);
+        Collections.sort(result);
         return result;
     }
 
@@ -89,5 +109,44 @@ public class MainPage {
 
     public SelenideElement findTopLevelClient(String client) {
         return topLevelClients.findBy(Condition.text(client));
+    }
+
+    public List<String> getExpectedAdvertiserList() {
+        loadProperties();
+        String adverString = credentials.getProperty("advertisers.list");
+        List <String> result = Arrays.asList(adverString.split(","));
+        Collections.sort(result);
+        return result;
+    }
+
+    public List<String> getExpectedPublisherList() {
+        loadProperties();
+        String pubString = credentials.getProperty("publishers.list");
+        List <String> result = Arrays.asList(pubString.split(","));
+        Collections.sort(result);
+        return result;
+    }
+
+    public List<String> getExpectedTopLevelClientsList() {
+        loadProperties();
+        String clientString = credentials.getProperty("top.level.clients.list");
+        List <String> result = Arrays.asList(clientString.split(","));
+        Collections.sort(result);
+        return result;
+    }
+
+
+    public void waitUntilSubTreeBlockIsHidden(String value) {
+        $x("//button[contains(text(),'"+value+"')]/..//div[@class='sub-tree']").waitUntil(Condition.hidden,2000);
+
+    }
+
+    public Boolean checkCookie(String notSavedOpened, String value) {
+
+       if ( WebDriverRunner.getWebDriver().manage().getCookies().toString().contains("notSavedOpened"))
+       {String cookie = WebDriverRunner.getWebDriver().manage().getCookieNamed("notSavedOpened").getValue();
+        return cookie.contains(value);}
+       else
+           return false;
     }
 }

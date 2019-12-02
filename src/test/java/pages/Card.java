@@ -81,7 +81,7 @@ public class Card {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return content;
+        return content.replaceAll("\n", "");
     }
 
     public void downloadFile() {

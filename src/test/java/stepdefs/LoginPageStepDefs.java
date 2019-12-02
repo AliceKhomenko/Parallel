@@ -27,7 +27,7 @@ import java.util.*;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class MyStepdefs {
+public class LoginPageStepDefs {
     LoginPage loginPage;
         @Given("^browser is opened$")
         public void openBrowser(){
@@ -41,18 +41,7 @@ public class MyStepdefs {
 
     @And("^site is opened$")
     public void siteIsOpened() {
-      /*  FileInputStream input = null;
-        try {
-            input = new FileInputStream("src/resources/staging.properties");
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        Properties credentials = new Properties();
-        try {
-            credentials.load(input);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+
 
     //  Configuration.browser = "firefox";
 
@@ -74,10 +63,7 @@ public class MyStepdefs {
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         Configuration.timeout=20000;
-      //  Configuration.fileDownload= FileDownloadMode.PROXY;
-      //  Configuration.proxyEnabled=true;
-       // Configuration.driverManagerEnabled = false;
-      //  Configuration.browser = CustomWebDriverProvider.class.getName();
+
 
         open("http://localhost:8080/");
 
