@@ -69,6 +69,7 @@ public class MainPageStepDefs {
 
     @When("^user double clicks Advertiser block$")
     public void userDoubleClicksAdvertiserBlock() throws Throwable {
+        //rewrite
         userClicksAdvertiserBlock();
         userClicksAdvertiserBlock();
     }
@@ -76,6 +77,7 @@ public class MainPageStepDefs {
     @And("^user clicks \"([^\"]*)\" Advertiser$")
     public void userClicksAdvertiser(String adver) throws Throwable {
         mainPage.findAdvertiser(adver).click();
+        card.waitForPageLoad();
 
     }
 
@@ -88,9 +90,9 @@ public class MainPageStepDefs {
 
     @Then("^download file and text on the site is equal$")
     public void downloadFileAndTextOnTheSiteIsEqual() {
-        String path = System.getProperty("user.dir") + File.separator + "build" + File.separator + "downloads" + File.separator + "data.txt";
-        System.out.println(path);
+        String path = File.separator + "build" + File.separator + "downloads" + File.separator + "data.txt";
         String file = card.readFile(path);
+        card.deleteFile(path);
 
         Assert.assertEquals(file, card.cardText.getText().replaceAll("\n", ""));
     }
@@ -98,22 +100,28 @@ public class MainPageStepDefs {
     @And("^user clicks \"([^\"]*)\" Publisher$")
     public void userClicksPublisher(String pub) throws Throwable {
         mainPage.findPublisher(pub).click();
+        card.waitForPageLoad();
+
 
     }
 
     @And("^user clicks \"([^\"]*)\" Client$")
     public void userClicksClient(String client) throws Throwable {
         mainPage.findTopLevelClient(client).click();
+        card.waitForPageLoad();
+
     }
 
     @When("^user double clicks Publishers block$")
     public void userDoubleClicksPublishersBlock() throws Throwable {
+      //rewrite
         userClicksPublishersBlock();
         userClicksPublishersBlock();
     }
 
     @When("^user double clicks Top level clients block$")
     public void userDoubleClicksTopLevelClientsBlock() throws Throwable {
+        //rewrite
         userClicksTopLevelClientsBlock();
         userClicksTopLevelClientsBlock();
     }
@@ -166,11 +174,34 @@ public class MainPageStepDefs {
         Assert.assertTrue(card.checkTitle(title));
     }
 
-    @And("^card image is on <([^\"]*)>$")
+    @And("^card image is on ([^\"]*)$")
     public void cardImageIsOn(String src) throws Throwable {
        Assert.assertTrue(card.checkImageSrc(src));
     }
 
 
+    @And("^card description is equal to ([^\"]*)$")
+    public void cardDescriptionIsEqualToDescription(String file) throws Throwable {
+        Assert.assertTrue(card.checkShortDescription(file));
+    }
 
+    @Then("^Moved to save button is disabled$")
+    public void movedToSaveButtonIsDisabled() throws Throwable {
+        Assert.assertTrue(card.MovedToSaveButtonIsDisabled());
+    }
+
+    @And("^user scrolls textarea to the middle$")
+    public void userScrollsTextareaToTheMiddle() throws Throwable {
+        card.scrollTextAreaToTheMiddle();
+    }
+
+    @And("^user scrolls textarea to the end$")
+    public void userScrollsTextareaToTheEnd() throws Throwable {
+        card.scrollTextAreaToTheEnd();
+    }
+
+    @Then("^Moved to save button is enabled$")
+    public void movedToSaveButtonIsEnabled() throws Throwable {
+        Assert.assertFalse(card.MovedToSaveButtonIsDisabled());
+    }
 }

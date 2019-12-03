@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.JavascriptExecutor;
@@ -12,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -47,6 +49,11 @@ public class Card {
     @FindBy(css = "#dataCard span.ui-slider-handle")
     private SelenideElement scaleSlider;
 
+    @FindBy(css = "#dataCard div.card-body >p.card-text")
+    private SelenideElement shortDescription;
+
+    private Properties properties = new LoadProperties().init();
+
 
     public void changeScale(int percent){
 
@@ -77,15 +84,20 @@ public class Card {
     public static String readFile(String path) {
         String content = null;
         try {
-            content = new String(Files.readAllBytes(Paths.get(path)));
-            File downloadedFile = new File(path);
-            downloadedFile.delete();
+            content = new String(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+path)));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
         return content.replaceAll("\n", "");
     }
 
+    public void deleteFile(String path){
+        File downloadedFile = new File(System.getProperty("user.dir")+path);
+        downloadedFile.delete();
+
+
+    }
     public void downloadFile() {
 
 
@@ -100,24 +112,47 @@ public class Card {
     }
 
     public boolean checkImage() {
-            boolean loaded = (boolean) ((JavascriptExecutor) WebDriverRunner.getWebDriver()).executeScript("return arguments[0].complete", cardImage);
-
+           // boolean loaded = (boolean) ((JavascriptExecutor) WebDriverRunner.getWebDriver()).executeScript("return arguments[0].complete", cardImage);
+        boolean loaded = !(cardImage.getAttribute("naturalWidth").equals("0"));
             return loaded;
     }
 
     public boolean checkTitle(String title) {
-        return cardTitle.equals(title);
+        return cardTitle.getText().equals(title);
     }
 
     public boolean checkImageSrc(String src) {
-        return  cardImage.getAttribute("src").equals(src);
+        return  cardImage.getAttribute("src").equals(properties.getProperty("url")+src);
     }
 
-    public void scrollTextArea(){
+    public void scrollTextAreaToTheEnd(){
        JavascriptExecutor js =(JavascriptExecutor)WebDriverRunner.getWebDriver();
        js.executeScript("var textarea = document.querySelector('textarea');\n" +
                 "textarea.scrollTop = textarea.scrollHeight;");
 
+    }
+    public void scrollTextAreaToTheMiddle(){
+        JavascriptExecutor js =(JavascriptExecutor)WebDriverRunner.getWebDriver();
+        js.executeScript("var textarea = document.querySelector('textarea');\n" +
+                "textarea.scrollTop = textarea.scrollHeight/2;");
+
+    }
+
+
+    public boolean checkShortDescription(String file) {
+        String path = properties.getProperty("short.descrtiption.path")+file;
+        String fileText = readFile(path);
+        return fileText.equals(shortDescription.getText());
+
+    }
+
+    public boolean MovedToSaveButtonIsDisabled() {
+       return movedToSavedButton.is(Condition.disabled);
+    }
+
+    public void waitForPageLoad() {
+
+        card.waitUntil(Condition.visible,10000);
     }
 }
 

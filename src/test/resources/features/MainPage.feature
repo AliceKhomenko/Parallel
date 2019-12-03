@@ -4,7 +4,7 @@ Feature: Main Page
     Given site is opened
     And user is already logged in
 
-  @test @advertiser @publisher @top_level_client
+  @advertiser @publisher @top_level_client
   Scenario: Open all subtrees
     When user clicks Advertiser block
     And user clicks Publishers block

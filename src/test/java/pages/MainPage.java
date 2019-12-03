@@ -19,23 +19,43 @@ public class MainPage {
     @FindBy(id = "avatar")
     private SelenideElement avatarIcon;
 
-    @FindBy(xpath = "//button[contains(text(),'Advertisers')]")
+    @FindBy(xpath = "//div[contains(@class,'card-header') and contains(text(),'Saved articles')]/..//button[contains(text(),'Advertisers')]")
+    private SelenideElement savedAdvertisersButton;
+
+    @FindBy(xpath = "//div[contains(@class,'card-header') and contains(text(),'Saved articles')]/..//button[contains(text(),'Publishers')]")
+    private SelenideElement savedPublishersButton;
+
+    @FindBy(xpath = "//div[contains(@class,'card-header') and contains(text(),'Saved articles')]/..//button[contains(text(),'Top level clients')]")
+    private SelenideElement savedTopLevelClientsButton;
+
+    @FindBy(xpath = "//div[contains(@class,'card-header') and contains(text(),'Saved articles')]/..//button[contains(text(),'Advertisers')]/..//div[@class='sub-tree-element']//button")
+    public ElementsCollection savedAdvertisers;
+
+    @FindBy(xpath = "//div[contains(@class,'card-header') and contains(text(),'Saved articles')]/..//button[contains(text(),'Publishers')]/..//div[@class='sub-tree-element']//button")
+    public ElementsCollection savedPublishers;
+
+    @FindBy(xpath = "//div[contains(@class,'card-header') and contains(text(),'Saved articles')]/..//button[contains(text(),'Top level clients')]/..//div[@class='sub-tree-element']//button")
+    public ElementsCollection savedTopLevelClients;
+
+
+    @FindBy(xpath = "//div[contains(@class,'card-header') and contains(text(),'Articles to read')]/..//button[contains(text(),'Advertisers')]")
     private SelenideElement advertisersButton;
 
-    @FindBy(xpath = "//button[contains(text(),'Publishers')]")
+    @FindBy(xpath = "//div[contains(@class,'card-header') and contains(text(),'Articles to read')]/..//button[contains(text(),'Publishers')]")
     private SelenideElement publishersButton;
 
-    @FindBy(xpath = "//button[contains(text(),'Top level clients')]")
+    @FindBy(xpath = "//div[contains(@class,'card-header') and contains(text(),'Articles to read')]/..//button[contains(text(),'Top level clients')]")
     private SelenideElement topLevelClientsButton;
 
-    @FindBy(xpath = "//button[contains(text(),'Advertisers')]/..//div[@class='sub-tree-element']//button")
+    @FindBy(xpath = "//div[contains(@class,'card-header') and contains(text(),'Articles to read')]/..//button[contains(text(),'Advertisers')]/..//div[@class='sub-tree-element']//button")
     public ElementsCollection advertisers;
 
-    @FindBy(xpath = "//button[contains(text(),'Publishers')]/..//div[@class='sub-tree-element']//button")
+    @FindBy(xpath = "//div[contains(@class,'card-header') and contains(text(),'Articles to read')]/..//button[contains(text(),'Publishers')]/..//div[@class='sub-tree-element']//button")
     public ElementsCollection publishers;
 
-    @FindBy(xpath = "//button[contains(text(),'Top level clients')]/..//div[@class='sub-tree-element']//button")
+    @FindBy(xpath = "//div[contains(@class,'card-header') and contains(text(),'Articles to read')]/..//button[contains(text(),'Top level clients')]/..//div[@class='sub-tree-element']//button")
     public ElementsCollection topLevelClients;
+
 
     private     Properties properties = new LoadProperties().init();
 
