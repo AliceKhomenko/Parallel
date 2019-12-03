@@ -12,16 +12,16 @@ Feature: Main Page
     Then Advertisers list is shown
     And Publishers list is shown
     And Top level clients list is shown
-    And "Advertisers" is added to cookies
-    And "Publishers" is added to cookies
-    And "Top level clients" is added to cookies
+    And "Advertisers" is added to cookie "notSavedOpened"
+    And "Publishers" is added to cookie "notSavedOpened"
+    And "Top level clients" is added to cookie "notSavedOpened"
 
 
   @advertiser
   Scenario: Advertiser block is shown
     When user clicks Advertiser block
     Then Advertisers list is shown
-    And "Advertisers" is added to cookies
+    And "Advertisers" is added to cookie "notSavedOpened"
 
 
   @advertiser
@@ -34,7 +34,7 @@ Feature: Main Page
   Scenario: Publishers block is shown
     When user clicks Publishers block
     Then Publishers list is shown
-    And "Publishers" is added to cookies
+    And "Publishers" is added to cookie "notSavedOpened"
 
   @publisher
   Scenario: Hide Publishers block
@@ -46,7 +46,7 @@ Feature: Main Page
   Scenario: Top level clients block is shown
     When user clicks Top level clients block
     Then Top level clients list is shown
-    And "Top level clients" is added to cookies
+    And "Top level clients" is added to cookie "notSavedOpened"
 
   @top_level_client
   Scenario: Hide Top level clients block

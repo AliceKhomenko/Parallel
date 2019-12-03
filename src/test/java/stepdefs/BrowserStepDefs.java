@@ -17,7 +17,7 @@ import static com.codeborne.selenide.Selenide.refresh;
  */
 public class BrowserStepDefs {
 
-    Properties properties = new LoadProperties().init();
+    Properties properties = LoadProperties.init();
     String url = properties.getProperty("url");
 
 
@@ -25,9 +25,7 @@ public class BrowserStepDefs {
     public void siteIsOpened() {
         Configuration.startMaximized = true;
         Configuration.timeout = Integer.parseInt(properties.getProperty("timeout.in.seconds")) * 1000;
-
         open(url);
-
     }
 
     @And("^user is already logged in$")
@@ -35,7 +33,5 @@ public class BrowserStepDefs {
         Cookie cookies = new Cookie("secret", properties.getProperty("authorized.cookie"));
         WebDriverRunner.getWebDriver().manage().addCookie(cookies);
         refresh();
-
-
     }
 }

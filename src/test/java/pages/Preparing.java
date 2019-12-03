@@ -1,4 +1,4 @@
-package stepdefs;
+package pages;
 
 import cucumber.api.Scenario;
 

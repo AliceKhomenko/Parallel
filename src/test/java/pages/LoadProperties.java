@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class LoadProperties {
-    public  Properties init(){
+    public static  Properties init(){
         Properties properties = new Properties();
 
         FileInputStream input = null;

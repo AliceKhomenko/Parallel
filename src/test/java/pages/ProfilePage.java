@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -21,7 +22,7 @@ public class ProfilePage {
     private SelenideElement saveButton;
 
     @FindBy(id = "successUserInfoSaveInfo")
-    private SelenideElement successfulSaveAlert;
+    private SelenideElement successfulUserInfoSavedAlert;
 
     @FindBy(id = "cardNumberInput")
     private SelenideElement cardNumberField;
@@ -35,7 +36,58 @@ public class ProfilePage {
     @FindBy(css = "button[onclick=\"savePaymentInfo()\"]")
     private SelenideElement savePaymentInfoButton;
 
+    @FindBy(id = "successPaymentInfoSaveInfo")
+    private SelenideElement successfulPaymentInfoSavedALert;
 
 
+    public void inputFirstName(String name) {
+        firstNameField.setValue(name);
+    }
 
+    public void inputLastName(String name) {
+        lastNameField.setValue(name);
+
+    }
+
+    public void clickProfileButton() {
+        userProfileButton.click();
+    }
+
+    public void clickPaymentSettingsButton() {
+
+        paymentSettingsButton.click();
+
+    }
+
+    public void inputCardNumber(String card) {
+
+        cardNumberField.setValue(card);
+    }
+
+    public void selectPaymentSystem(String system) {
+        paymentSysyremSelector.selectOptionContainingText(system);
+
+
+    }
+
+    public void clickSaveUserInfo() {
+        saveButton.click();
+    }
+
+    public void successfullAlertIsShown() {
+        successfulUserInfoSavedAlert.shouldBe(Condition.visible);
+
+    }
+
+    public void successfulPaymentInfoSavedIsShown() {
+        successfulPaymentInfoSavedALert.shouldBe(Condition.visible);
+    }
+
+    public void clickSavePaymentInfo() {
+        savePaymentInfoButton.click();
+    }
+
+    public void inputDayOfPayment(String arg0) {
+        paymentRangeSlider.setValue(String.valueOf(12));
+    }
 }

@@ -13,75 +13,78 @@ import java.util.Properties;
 import static com.codeborne.selenide.Selenide.Wait;
 
 public class LoginPage {
-    @FindBy(id="registrationContainer")
+    @FindBy(id = "registrationContainer")
     public SelenideElement loginForm;
 
     @FindBy(how = How.ID, using = "loginInput")
     private SelenideElement loginField;
 
-    @FindBy(how = How.CSS,using = "div[onclick=\"startInputLogin()\"]")
+    @FindBy(how = How.CSS, using = "div[onclick=\"startInputLogin()\"]")
     private SelenideElement loginBlock;
 
-    @FindBy(how = How.ID,using = "passwordInput")
+    @FindBy(how = How.ID, using = "passwordInput")
     private SelenideElement passwordField;
 
-    @FindBy(how = How.CSS,using = "div[onclick=\"startInputPassword()\"]")
+    @FindBy(how = How.CSS, using = "div[onclick=\"startInputPassword()\"]")
     private SelenideElement passwordBlock;
 
-    @FindBy(how=How.XPATH,using = "//button[contains(text(),'Hover me faster!')]")
+    @FindBy(how = How.XPATH, using = "//button[contains(text(),'Hover me faster!')]")
     private SelenideElement howerMeFasterButton;
 
-    @FindBy(how=How.CSS,using="img[src='sign.png']")
+    @FindBy(how = How.CSS, using = "img[src='sign.png']")
     private SelenideElement signInButton;
 
-    private Properties properties = new LoadProperties().init();
+    private Properties properties = LoadProperties.init();
 
 
-
-    public void inputLogin(String loginType){
+    public void inputLogin(String loginType) {
 
         loginBlock.click();
-        switch(loginType) {
-            case "correct" :loginField.setValue(properties.getProperty("correct.login"));break;
-            case "incorrect": loginField.setValue(properties.getProperty("incorrect.login"));break;
+        switch (loginType) {
+            case "correct":
+                loginField.setValue(properties.getProperty("correct.login"));
+                break;
+            case "incorrect":
+                loginField.setValue(properties.getProperty("incorrect.login"));
+                break;
             default:
                 Assert.fail("Unknown parameter for login");
         }
     }
 
-    public void inputPassword(String passwordType){
-
+    public void inputPassword(String passwordType) {
         passwordBlock.click();
-
-        switch(passwordType) {
-            case "correct" :passwordField.setValue(properties.getProperty("correct.password"));break;
-            case "incorrect": passwordField.setValue(properties.getProperty("incorrect.password"));break;
+        switch (passwordType) {
+            case "correct":
+                passwordField.setValue(properties.getProperty("correct.password"));
+                break;
+            case "incorrect":
+                passwordField.setValue(properties.getProperty("incorrect.password"));
+                break;
             default:
                 Assert.fail("Unknown parameter for password");
         }
-
     }
 
-    public void moveCursorToButton(){
+    public void moveCursorToButton() {
         howerMeFasterButton.hover();
     }
 
     public void clickSighInButton() {
-        signInButton.waitUntil(Condition.visible,10000);
-
+        signInButton.waitUntil(Condition.visible, 10000);
         signInButton.click();
     }
 
     public void isShown() {
-        loginForm.waitUntil(Condition.visible,3000);
+        loginForm.waitUntil(Condition.visible, 3000);
 
     }
 
-    public void clickLoginFiled(){
+    public void clickLoginFiled() {
         loginBlock.click();
     }
 
-    public void clickPasswordField(){
+    public void clickPasswordField() {
         passwordBlock.click();
     }
 

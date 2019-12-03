@@ -4,6 +4,8 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
+import org.openqa.selenium.Cookie;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 import java.io.FileInputStream;
@@ -57,7 +59,7 @@ public class MainPage {
     public ElementsCollection topLevelClients;
 
 
-    private     Properties properties = new LoadProperties().init();
+    private     Properties properties = LoadProperties.init();
 
 
 
@@ -131,9 +133,9 @@ public class MainPage {
     }
 
     public Boolean checkCookie(String notSavedOpened, String value) {
-
-       if ( WebDriverRunner.getWebDriver().manage().getCookies().toString().contains("notSavedOpened"))
-       {String cookie = WebDriverRunner.getWebDriver().manage().getCookieNamed("notSavedOpened").getValue();
+        WebDriver.Options options = WebDriverRunner.getWebDriver().manage();
+       if (options.getCookies().toString().contains(value))
+       {String cookie = options.getCookieNamed("notSavedOpened").getValue();
         return cookie.contains(value);}
        else
            return false;
@@ -164,5 +166,10 @@ public class MainPage {
 
     public void clickTopLevelButtonInSavedBlock() {
         savedTopLevelClientsButton.click();
+    }
+
+    public void clickAvatar(){
+        avatarIcon.click();
+
     }
 }

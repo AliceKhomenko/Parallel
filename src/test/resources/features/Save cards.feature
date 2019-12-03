@@ -4,7 +4,7 @@ Feature: Save cards
     Given site is opened
     And user is already logged in
 
-
+@advertiser
   Scenario Outline: Save button is disabled
     When user clicks Advertiser block
     And user clicks "<adver>" Advertiser
@@ -14,7 +14,7 @@ Feature: Save cards
       | adver           |
       | Test Advertiser |
       | Adidas          |
-
+@publisher
   Scenario Outline: Publisher info
     When user clicks Publishers block
     And user clicks "<publisher>" Publisher
@@ -26,7 +26,7 @@ Feature: Save cards
       | Youtube   |
       | Instagram |
 
-
+@top_level_client
   Scenario Outline: Top level client info
     When user clicks Top level clients block
     And user clicks "<client>" Client
@@ -146,7 +146,7 @@ Feature: Save cards
       And user clicks Advertiser in Saved articles
       Then "Test Advertiser" is shown in Saved Advertiser Articles
       And "Test Advertiser" isn't shown in Advertiser Articles to read
-      Then "Test Advertiser" is added to cookies
+      Then "Test Advertiser" is added to cookie "saved"
 
 
   Scenario: Add Publisher to the saved articles
@@ -167,6 +167,8 @@ Feature: Save cards
     And user clicks Top level clients in Saved articles
     Then "Sasha Grey" is shown in Saved Top level clients Articles
     And "Sasha Grey" isn't shown in Top Level clients Articles to read
+
+
 
 
 

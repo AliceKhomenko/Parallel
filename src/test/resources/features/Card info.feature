@@ -51,3 +51,17 @@ Feature: Card info
       | Tony Stark   | TonyStark.txt   | data/tony_stark/tony_stark.png     |
       | Elon Musk    | ElonMusk.txt    | data/elon_musk/elon_musk.png       |
       | Darth Vader  | DarthVader.txt  | data/darth_vader/darth_vader.png   |
+
+    Scenario: User can increases scale of image
+      When user clicks Advertiser block
+      And user clicks "Adidas" Advertiser
+      And user increases image scale on 100%
+      Then image size is 500x500
+
+
+  Scenario: User can descreases scale of image
+    When user clicks Advertiser block
+    And user clicks "Adidas" Advertiser
+    And user increases image scale on 100%
+    And user decreases image scale on 100%
+    Then image size is 300x300
