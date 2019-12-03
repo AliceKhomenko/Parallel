@@ -25,6 +25,12 @@ public class MainPageStepDefs {
     MainPage mainPage = page(MainPage.class);
     Card card = page(Card.class);
 
+
+    @Then("^main page is opened$")
+    public void mainPageIsOpened() {
+        mainPage.waitForPageLoad();
+    }
+
     @When("^user clicks Advertiser block$")
     public void userClicksAdvertiserBlock() {
         mainPage.waitForPageLoad();
@@ -34,7 +40,7 @@ public class MainPageStepDefs {
     @Then("^Advertisers list is shown$")
     public void advertisersListIsShown() {
         List<String> expectedList = mainPage.getExpectedAdvertiserList();
-        Assert.assertEquals(expectedList, mainPage.advertisersNames());
+        Assert.assertEquals(expectedList, mainPage.textInElements(mainPage.advertisers));
 
         // card.changeScale(100);
         // card.changeScale(-100);
@@ -50,7 +56,7 @@ public class MainPageStepDefs {
     @Then("^Publishers list is shown$")
     public void publishersListIsShown() throws Throwable {
         List<String> expectedList = mainPage.getExpectedPublisherList();
-        Assert.assertEquals(expectedList, mainPage.publishersNames());
+        Assert.assertEquals(expectedList, mainPage.textInElements(mainPage.publishers));
 
     }
 
@@ -64,14 +70,13 @@ public class MainPageStepDefs {
     public void topLevelClientsListIsShown() throws Throwable {
         List<String> expectedList = mainPage.getExpectedTopLevelClientsList();
 
-        Assert.assertEquals(expectedList, mainPage.topLevelClientNames());
+        Assert.assertEquals(expectedList, mainPage.textInElements(mainPage.topLevelClients));
     }
 
     @When("^user double clicks Advertiser block$")
     public void userDoubleClicksAdvertiserBlock() throws Throwable {
-        //rewrite
-        userClicksAdvertiserBlock();
-        userClicksAdvertiserBlock();
+
+        mainPage.doubleClickOnAdvertiserButton();
     }
 
     @And("^user clicks \"([^\"]*)\" Advertiser$")
@@ -114,16 +119,13 @@ public class MainPageStepDefs {
 
     @When("^user double clicks Publishers block$")
     public void userDoubleClicksPublishersBlock() throws Throwable {
-      //rewrite
-        userClicksPublishersBlock();
-        userClicksPublishersBlock();
+
+        mainPage.doubleClickOnPublisherButton();
     }
 
     @When("^user double clicks Top level clients block$")
     public void userDoubleClicksTopLevelClientsBlock() throws Throwable {
-        //rewrite
-        userClicksTopLevelClientsBlock();
-        userClicksTopLevelClientsBlock();
+        mainPage.doubleClickOnTopLevelClientButton();
     }
 
     @And("^Top level clients is added to cookies$")
@@ -203,5 +205,62 @@ public class MainPageStepDefs {
     @Then("^Moved to save button is enabled$")
     public void movedToSaveButtonIsEnabled() throws Throwable {
         Assert.assertFalse(card.MovedToSaveButtonIsDisabled());
+    }
+
+    @Then("^user clicks move to saved button$")
+    public void userClicksMoveToSavedButton() throws Throwable {
+       card.clickMoveToSavedButton();
+    }
+
+    @And("^user clicks Advertiser in Saved articles$")
+    public void userClicksAdvertiserInSavedArticles() throws Throwable {
+      mainPage.clickAdvertisersButtonInSavedBlock();
+    }
+
+    @Then("^\"([^\"]*)\" is shown in Saved Advertiser Articles$")
+    public void isShownInSavedArticles(String arg0) throws Throwable {
+        Assert.assertTrue(mainPage.textInElements(mainPage.savedAdvertisers).contains(arg0));
+    }
+
+
+    @And("^\"([^\"]*)\" isn't shown in Advertiser Articles to read$")
+    public void isnTShownInAdvertiserArticlesToRead(String arg0) throws Throwable {
+        Assert.assertFalse(mainPage.textInElements(mainPage.advertisers).contains(arg0));
+    }
+
+    @And("^user clicks Publisher in Saved articles$")
+    public void userClicksPublisherInSavedArticles() throws Throwable {
+        mainPage.clickPublishersButtonInSavedBlock();
+
+    }
+
+    @Then("^\"([^\"]*)\" is shown in Saved Publisher Articles$")
+    public void isShownInSavedPublisherArticles(String arg0) throws Throwable {
+        Assert.assertTrue(mainPage.textInElements(mainPage.savedPublishers).contains(arg0));
+
+    }
+
+    @And("^\"([^\"]*)\" isn't shown in Publisher Articles to read$")
+    public void isnTShownInPublisherArticlesToRead(String arg0) throws Throwable {
+        Assert.assertFalse(mainPage.textInElements(mainPage.publishers).contains(arg0));
+
+    }
+
+    @And("^user clicks Top level clients in Saved articles$")
+    public void userClicksTopLevelClientsInSavedArticles() throws Throwable {
+        mainPage.clickTopLevelButtonInSavedBlock();
+
+    }
+
+    @Then("^\"([^\"]*)\" is shown in Saved Top level clients Articles$")
+    public void isShownInSavedTopLevelClientsArticles(String arg0) throws Throwable {
+        Assert.assertTrue(mainPage.textInElements(mainPage.savedTopLevelClients).contains(arg0));
+
+    }
+
+    @And("^\"([^\"]*)\" isn't shown in Top Level clients Articles to read$")
+    public void isnTShownInTopLevelClientsArticlesToRead(String arg0) throws Throwable {
+        Assert.assertFalse(mainPage.textInElements(mainPage.topLevelClients).contains(arg0));
+
     }
 }

@@ -21,7 +21,7 @@ Feature: Login
     And user clicks Login button
     And user dismissed 1st alert
     Then main page isn't opened
-    Then login page is opened
+    And login page is opened
 
   @regression
   Scenario: User doesn't confirm first alert
@@ -31,7 +31,7 @@ Feature: Login
     And user accepts 1st alert
     And user dismissed 2nd alert
     Then main page isn't opened
-    Then login page is opened
+    And login page is opened
 
   @smoke
   Scenario Outline: User can't logged in

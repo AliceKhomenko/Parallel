@@ -73,6 +73,7 @@ public class LoginPage {
     }
 
     public void isShown() {
+        loginForm.waitUntil(Condition.visible,3000);
 
     }
 

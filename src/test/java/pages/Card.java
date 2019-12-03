@@ -154,5 +154,10 @@ public class Card {
 
         card.waitUntil(Condition.visible,10000);
     }
+
+    public void clickMoveToSavedButton() {
+        movedToSavedButton.click();
+    }
+
 }
 

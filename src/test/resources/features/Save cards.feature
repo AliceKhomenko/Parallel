@@ -136,8 +136,42 @@ Feature: Save cards
       | Elon Musk    |
       | Darth Vader  |
 
-    Scenario: Add Advertiser to the saved arctivles
+
+
+    Scenario: Add Advertiser to the saved articles
       When user clicks Advertiser block
       And user clicks "Test Advertiser" Advertiser
       And user scrolls textarea to the end
-      Then user clicks move to saved button
+      And user clicks move to saved button
+      And user clicks Advertiser in Saved articles
+      Then "Test Advertiser" is shown in Saved Advertiser Articles
+      And "Test Advertiser" isn't shown in Advertiser Articles to read
+      Then "Test Advertiser" is added to cookies
+
+
+  Scenario: Add Publisher to the saved articles
+    When user clicks Publishers block
+    And user clicks "Youtube" Publisher
+    And user scrolls textarea to the end
+    And user clicks move to saved button
+    And user clicks Publisher in Saved articles
+    Then "Youtube" is shown in Saved Publisher Articles
+    And "Youtube" isn't shown in Publisher Articles to read
+
+
+  Scenario: Add Top Level Clients to the saved articles
+    When user clicks Top level clients block
+    And user clicks "Sasha Grey" Client
+    And user scrolls textarea to the end
+    And user clicks move to saved button
+    And user clicks Top level clients in Saved articles
+    Then "Sasha Grey" is shown in Saved Top level clients Articles
+    And "Sasha Grey" isn't shown in Top Level clients Articles to read
+
+
+
+
+
+
+
+

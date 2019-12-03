@@ -73,38 +73,22 @@ public class MainPage {
         topLevelClientsButton.click();
     }
 
-    public List<String> advertisersNames() {
-        List<String> advertiserNames = new ArrayList<>();
-        for(SelenideElement element: advertisers){
-            advertiserNames.add(element.getText());
+    public List<String> textInElements(ElementsCollection elements) {
+        List<String> text = new ArrayList<>();
+        for(SelenideElement element: elements){
+            text.add(element.getText());
         }
-        Collections.sort(advertiserNames);
-        return advertiserNames;
+        Collections.sort(text);
+        return text;
     }
 
     public void waitForPageLoad() {
         avatarIcon.waitUntil(Condition.exist,30000);
     }
 
-    public List<String> publishersNames() {
-        List<String> result = new ArrayList<>();
-        for(SelenideElement element: publishers){
-            result.add(element.getText());
-        }
-        System.out.println(result);
-        Collections.sort(result);
-        return result;
-    }
 
-    public List<String> topLevelClientNames() {
-        List<String> result = new ArrayList<>();
-        for(SelenideElement element: topLevelClients){
-            result.add(element.getText());
-        }
-        System.out.println(result);
-        Collections.sort(result);
-        return result;
-    }
+
+
 
     public SelenideElement findAdvertiser(String adver) {
         return advertisers.findBy(Condition.text(adver));
@@ -153,5 +137,32 @@ public class MainPage {
         return cookie.contains(value);}
        else
            return false;
+    }
+
+    public void doubleClickOnAdvertiserButton(){
+        advertisersButton.doubleClick();
+
+    }
+
+    public void doubleClickOnPublisherButton(){
+        publishersButton.doubleClick();
+
+    }
+
+    public void doubleClickOnTopLevelClientButton(){
+        topLevelClientsButton.doubleClick();
+
+    }
+
+    public void clickAdvertisersButtonInSavedBlock() {
+        savedAdvertisersButton.click();
+    }
+
+    public void clickPublishersButtonInSavedBlock() {
+        savedPublishersButton.click();
+    }
+
+    public void clickTopLevelButtonInSavedBlock() {
+        savedTopLevelClientsButton.click();
     }
 }
