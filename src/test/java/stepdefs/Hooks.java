@@ -27,7 +27,7 @@ public class Hooks {
     public void setUp(Scenario scenario) {
         TestContext.clearTestVariables();
         Configuration.screenshots = false;
-        Configuration.holdBrowserOpen=true;
+        Configuration.savePageSource=false;
 
         featureName = Preparing.getFeatureName(scenario);
 
@@ -52,7 +52,7 @@ public class Hooks {
             e.printStackTrace();
         }
 
-  //      WebDriverRunner.getWebDriver().quit();
+        WebDriverRunner.getWebDriver().quit();
     }
 
 }
