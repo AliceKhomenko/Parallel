@@ -5,14 +5,12 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 import org.testng.annotations.Test;
 
 @CucumberOptions(
-        plugin = {"pretty","json:target/report/cucumber2.json"},
+        plugin = {"pretty","html:reports/cucumber/FirstTest","json:target/report/cucumber2.json"},
         strict = true,
         features = {"src/test/resources/features/"},
         glue = {"stepdefs"},
         monochrome=true
-        ,tags={"@test"}
-
-        )
+        ,tags={"@test"})
 
 
 

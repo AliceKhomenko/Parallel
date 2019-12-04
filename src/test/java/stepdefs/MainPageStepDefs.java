@@ -2,6 +2,7 @@ package stepdefs;
 
 import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -77,7 +78,35 @@ public class MainPageStepDefs {
 
     @And("^user clicks \"([^\"]*)\" Advertiser$")
     public void userClicksAdvertiser(String adver) throws Throwable {
-        mainPage.findAdvertiser(adver).click();
+        SelenideElement adverElement;
+        switch(adver) {
+            case "random":
+
+                adverElement = mainPage.getRandomElementFromCollection(mainPage.advertisers);
+
+                break;
+            default:
+                adverElement = mainPage.findAdvertiser(adver);
+        }
+        TestContext.setSharedVariable("adver", adverElement.getText());
+        adverElement.click();
+        card.waitForPageLoad();
+    }
+
+    @And("^user clicks \"([^\"]*)\" saved Advertiser$")
+    public void userClicksSavedAdvertiser(String adver) throws Throwable {
+        SelenideElement adverElement;
+        switch(adver) {
+            case "random":
+
+                adverElement = mainPage.getRandomElementFromCollection(mainPage.savedAdvertisers);
+
+                break;
+            default:
+                adverElement = mainPage.findSavedAdvertiser(adver);
+        }
+        TestContext.setSharedVariable("adver", adverElement.getText());
+        adverElement.click();
         card.waitForPageLoad();
     }
 
@@ -96,13 +125,75 @@ public class MainPageStepDefs {
 
     @And("^user clicks \"([^\"]*)\" Publisher$")
     public void userClicksPublisher(String pub) throws Throwable {
-        mainPage.findPublisher(pub).click();
+        SelenideElement pubElement;
+        switch(pub) {
+            case "random":
+
+                pubElement = mainPage.getRandomElementFromCollection(mainPage.publishers);
+
+                break;
+            default:
+                pubElement = mainPage.findPublisher(pub);
+
+        }
+        TestContext.setSharedVariable("pub", pubElement.getText());
+        pubElement.click();
+        card.waitForPageLoad();
+    }
+
+    @And("^user clicks \"([^\"]*)\" saved Publisher$")
+    public void userClicksSavedPublisher(String pub) throws Throwable {
+        SelenideElement pubElement;
+        switch(pub) {
+            case "random":
+
+                pubElement = mainPage.getRandomElementFromCollection(mainPage.savedPublishers);
+
+                break;
+            default:
+                pubElement = mainPage.findSavedPublisher(pub);
+
+        }
+        TestContext.setSharedVariable("pub", pubElement.getText());
+        pubElement.click();
         card.waitForPageLoad();
     }
 
     @And("^user clicks \"([^\"]*)\" Client$")
+    
     public void userClicksClient(String client) throws Throwable {
-        mainPage.findTopLevelClient(client).click();
+        SelenideElement clientElement;
+        switch(client) {
+            case "random":
+
+                clientElement = mainPage.getRandomElementFromCollection(mainPage.topLevelClients);
+
+                break;
+            default:
+                clientElement = mainPage.findTopLevelClient(client);
+
+        }
+        TestContext.setSharedVariable("client", clientElement.getText());
+        clientElement.click();
+        card.waitForPageLoad();
+    }
+
+    @And("^user clicks \"([^\"]*)\" saved Client$")
+
+    public void userClicksSavedClient(String client) throws Throwable {
+        SelenideElement clientElement;
+        switch(client) {
+            case "random":
+
+                clientElement = mainPage.getRandomElementFromCollection(mainPage.savedTopLevelClients);
+
+                break;
+            default:
+                clientElement = mainPage.findSavedTopLevelClient(client);
+
+        }
+        TestContext.setSharedVariable("client", clientElement.getText());
+        clientElement.click();
         card.waitForPageLoad();
     }
 
@@ -116,11 +207,7 @@ public class MainPageStepDefs {
         mainPage.doubleClickOnTopLevelClientButton();
     }
 
-    @And("^Top level clients is added to cookies$")
-    public void topLevelClientsIsAddedToCookies() throws Throwable {
-        Set<Cookie> cookie = WebDriverRunner.getWebDriver().manage().getCookies();
-        System.out.println(cookie);
-    }
+
 
     @Then("^Advertisers list isn't shown$")
     public void advertisersListIsnTShown() throws Throwable {
@@ -132,9 +219,10 @@ public class MainPageStepDefs {
         Assert.assertTrue(mainPage.checkCookie(cookie, value));
     }
 
-    @And("^\"([^\"]*)\" isn't existed in cookie$")
-    public void isnTExistedInCookie(String value) throws Throwable {
-        Assert.assertFalse(mainPage.checkCookie("notSavedOpened", value));
+    @And("^\"([^\"]*)\" isn't added to cookie \"([^\"]*)\"$")
+    public void isnTExistedInCookie(String value,String cookie) throws Throwable {
+
+        Assert.assertFalse(mainPage.checkCookie(cookie, value));
     }
 
     @Then("^Publishers list isn't shown$")
@@ -197,45 +285,23 @@ public class MainPageStepDefs {
         mainPage.clickAdvertisersButtonInSavedBlock();
     }
 
-    @Then("^\"([^\"]*)\" is shown in Saved Advertiser Articles$")
-    public void isShownInSavedArticles(String arg0) throws Throwable {
-        Assert.assertTrue(mainPage.textInElements(mainPage.savedAdvertisers).contains(arg0));
-    }
 
-    @And("^\"([^\"]*)\" isn't shown in Advertiser Articles to read$")
-    public void isnTShownInAdvertiserArticlesToRead(String arg0) throws Throwable {
-        Assert.assertFalse(mainPage.textInElements(mainPage.advertisers).contains(arg0));
-    }
+
 
     @And("^user clicks Publisher in Saved articles$")
     public void userClicksPublisherInSavedArticles() throws Throwable {
         mainPage.clickPublishersButtonInSavedBlock();
     }
 
-    @Then("^\"([^\"]*)\" is shown in Saved Publisher Articles$")
-    public void isShownInSavedPublisherArticles(String arg0) throws Throwable {
-        Assert.assertTrue(mainPage.textInElements(mainPage.savedPublishers).contains(arg0));
-    }
 
-    @And("^\"([^\"]*)\" isn't shown in Publisher Articles to read$")
-    public void isnTShownInPublisherArticlesToRead(String arg0) throws Throwable {
-        Assert.assertFalse(mainPage.textInElements(mainPage.publishers).contains(arg0));
-    }
+
+
 
     @And("^user clicks Top level clients in Saved articles$")
     public void userClicksTopLevelClientsInSavedArticles() throws Throwable {
         mainPage.clickTopLevelButtonInSavedBlock();
     }
 
-    @Then("^\"([^\"]*)\" is shown in Saved Top level clients Articles$")
-    public void isShownInSavedTopLevelClientsArticles(String arg0) throws Throwable {
-        Assert.assertTrue(mainPage.textInElements(mainPage.savedTopLevelClients).contains(arg0));
-    }
-
-    @And("^\"([^\"]*)\" isn't shown in Top Level clients Articles to read$")
-    public void isnTShownInTopLevelClientsArticlesToRead(String arg0) throws Throwable {
-        Assert.assertFalse(mainPage.textInElements(mainPage.topLevelClients).contains(arg0));
-    }
 
     @When("^user clicks avatar icon$")
     public void userClicksAvatarIcon() {
@@ -255,5 +321,131 @@ public class MainPageStepDefs {
     @And("^user decreases image scale on (\\d+)%$")
     public void userDecreasesImageScaleTo(int arg0) throws Throwable {
         card.changeScale(-arg0);
+    }
+
+
+
+    @Then("^selected Advertiser ([^\"]*) shown in Saved Advertiser Articles$")
+    public void selectedAdvertiserIsShownInSavedAdvertiserArticles(String is) throws Throwable {
+        String arg0 = (String)TestContext.getSharedVariable("adver");
+        if (is.equals("is"))
+            Assert.assertTrue(mainPage.textInElements(mainPage.savedAdvertisers).contains(arg0));
+        else
+            Assert.assertFalse(mainPage.textInElements(mainPage.savedAdvertisers).contains(arg0));
+
+
+    }
+
+    @And("^selected Advertiser ([^\"]*) shown in Advertiser Articles to read$")
+    public void selectedAdvertiserIsnTShownInAdvertiserArticlesToRead(String is) throws Throwable {
+        String arg0 = (String)TestContext.getSharedVariable("adver");
+        if (is.equals("is"))
+            Assert.assertTrue(mainPage.textInElements(mainPage.advertisers).contains(arg0));
+        else
+            Assert.assertFalse(mainPage.textInElements(mainPage.advertisers).contains(arg0));
+
+    }
+
+    @And("^selected Advertiser ([^\"]*) added to cookie \"([^\"]*)\"$")
+    public void selectedAdvertiserIsAddedToCookie(String is,String cookie) throws Throwable {
+        String value = (String)TestContext.getSharedVariable("adver");
+        if (is.equals("is"))
+            Assert.assertTrue(mainPage.checkCookie(cookie, value));
+        else
+            Assert.assertFalse(mainPage.checkCookie(cookie, value));
+
+    }
+
+
+    @Then("^selected Publisher ([^\"]*) shown in Saved Publisher Articles$")
+    public void selectedPublisherIsShownInSavedArticles(String is) throws Throwable {
+        String arg0 = (String)TestContext.getSharedVariable("pub");
+        if (is.equals("is"))
+            Assert.assertTrue(mainPage.textInElements(mainPage.savedPublishers).contains(arg0));
+        else
+            Assert.assertFalse(mainPage.textInElements(mainPage.savedPublishers).contains(arg0));
+
+
+    }
+
+    @And("^selected Publisher ([^\"]*) shown in Publisher Articles to read$")
+    public void selectedPublisherIsnTShownInArticlesToRead(String is) throws Throwable {
+        String arg0 = (String)TestContext.getSharedVariable("pub");
+        if (is.equals("is"))
+            Assert.assertTrue(mainPage.textInElements(mainPage.publishers).contains(arg0));
+        else
+            Assert.assertFalse(mainPage.textInElements(mainPage.publishers).contains(arg0));
+
+    }
+
+
+    @And("^selected Publisher ([^\"]*) added to cookie \"([^\"]*)\"$")
+    public void selectedPublisherIsAddedToCookie(String is,String cookie) throws Throwable {
+        String value = (String)TestContext.getSharedVariable("pub");
+        if (is.equals("is"))
+            Assert.assertTrue(mainPage.checkCookie(cookie, value));
+        else
+            Assert.assertFalse(mainPage.checkCookie(cookie, value));
+
+    }
+
+    @Then("^selected Client ([^\"]*) shown in Saved Top level clients Articles$")
+    public void selectedClientIsShownInSavedTopLevelClientsArticles(String is) throws Throwable {
+        String arg0 = (String)TestContext.getSharedVariable("client");
+        if (is.equals("is"))
+            Assert.assertTrue(mainPage.textInElements(mainPage.savedTopLevelClients).contains(arg0));
+        else
+            Assert.assertFalse(mainPage.textInElements(mainPage.savedTopLevelClients).contains(arg0));
+
+    }
+
+    @And("^selected Client ([^\"]*) shown in Top Level clients Articles to read$")
+    public void selectedClientIsnTShownInTopLevelClientsArticlesToRead(String is) throws Throwable {
+        String arg0 = (String)TestContext.getSharedVariable("client");
+        if (is.equals("is"))
+        Assert.assertTrue(mainPage.textInElements(mainPage.topLevelClients).contains(arg0));
+        else
+            Assert.assertFalse(mainPage.textInElements(mainPage.topLevelClients).contains(arg0));
+
+    }
+
+
+    @And("^selected Client ([^\"]*) added to cookie \"([^\"]*)\"$")
+    public void selectedClientIsAddedToCookie(String is,String cookie) throws Throwable {
+        String value = (String)TestContext.getSharedVariable("client");
+        if (is.equals("is"))
+        Assert.assertTrue(mainPage.checkCookie(cookie, value));
+        else
+            Assert.assertFalse(mainPage.checkCookie(cookie, value));
+
+    }
+
+    @And("^user clicks Remove from saved button$")
+    public void userClicksRemoveFromSavedButton() throws Throwable {
+        card.clickRemovedFromSavedButton();
+    }
+
+    @And("^random Advertiser ([^\"]*) added in cookie \"([^\"]*)\"$")
+    public void randomAdvertiserIsnTAddedInCookie(String is, String cookie) throws Throwable {
+        String value = (String) TestContext.getSharedVariable("adver");
+        if (is.equals("is"))
+            Assert.assertTrue(mainPage.checkCookie(cookie, value));
+        else
+            Assert.assertFalse(mainPage.checkCookie(cookie, value));
+    }
+
+    @And("^user clicks Saved Advertiser block$")
+    public void userClicksSavedAdvertiserBlock() throws Throwable {
+        mainPage.clickAdvertisersButtonInSavedBlock();
+    }
+
+    @And("^user clicks Saved Publisher block$")
+    public void userClicksSavedPublisherBlock() throws Throwable {
+        mainPage.clickPublishersButtonInSavedBlock();
+    }
+
+    @And("^user clicks Saved Top level clients block$")
+    public void userClicksSavedTopLevelClientsBlock() throws Throwable {
+        mainPage.clickTopLevelButtonInSavedBlock();
     }
 }

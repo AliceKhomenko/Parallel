@@ -132,10 +132,10 @@ public class MainPage {
 
     }
 
-    public Boolean checkCookie(String notSavedOpened, String value) {
+    public Boolean checkCookie(String cookieName, String value) {
         WebDriver.Options options = WebDriverRunner.getWebDriver().manage();
        if (options.getCookies().toString().contains(value))
-       {String cookie = options.getCookieNamed("notSavedOpened").getValue();
+       {String cookie = options.getCookieNamed(cookieName).getValue();
         return cookie.contains(value);}
        else
            return false;
@@ -170,6 +170,27 @@ public class MainPage {
 
     public void clickAvatar(){
         avatarIcon.click();
+
+    }
+
+    public SelenideElement getRandomElementFromCollection(ElementsCollection collection) {
+        Random rand = new Random();
+        int i = rand.nextInt(collection.size());
+        return collection.get(i);
+
+    }
+
+    public SelenideElement findSavedAdvertiser(String adver) {
+        return savedAdvertisers.findBy(Condition.text(adver));
+    }
+
+    public SelenideElement findSavedPublisher(String pub) {
+        return savedPublishers.findBy(Condition.text(pub));
+
+    }
+
+    public SelenideElement findSavedTopLevelClient(String client) {
+        return savedTopLevelClients.findBy(Condition.text(client));
 
     }
 }

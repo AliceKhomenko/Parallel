@@ -28,7 +28,7 @@ Feature: Main Page
   Scenario: Hide advertiser block
     When user double clicks Advertiser block
     Then Advertisers list isn't shown
-    And "Advertisers" isn't existed in cookie
+    And "Advertisers" isn't added to cookie "notSavedOpened"
 
   @publisher
   Scenario: Publishers block is shown
@@ -40,7 +40,7 @@ Feature: Main Page
   Scenario: Hide Publishers block
     When user double clicks Publishers block
     Then Publishers list isn't shown
-    And "Publishers" isn't existed in cookie
+    And "Publishers" isn't added to cookie "notSavedOpened"
 
   @top_level_client
   Scenario: Top level clients block is shown
@@ -52,4 +52,4 @@ Feature: Main Page
   Scenario: Hide Top level clients block
     When user double clicks Top level clients block
     Then top level clients list isn't shown
-    And "Publishers" isn't existed in cookie
+    And "Top level clients" isn't added to cookie "notSavedOpened"

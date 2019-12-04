@@ -11,12 +11,13 @@ public class Preparing {
     public static String getFeatureName(Scenario scenario) {
         featureName = scenario.getUri()
                 .replaceAll("src/test/resources/features/", "")
-                .replaceAll(".feature", "");
+                .replaceAll(".feature", "")
+                .replaceAll(" ","");
         return featureName;
     }
 
     public static String getScenarioName(Scenario scenario) {
-        scenarioName = scenario.getName();
+        scenarioName = scenario.getName().replaceAll(" ","");
         return scenarioName;
     }
 

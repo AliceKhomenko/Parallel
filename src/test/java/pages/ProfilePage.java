@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.FindBy;
 
 public class ProfilePage {
@@ -87,7 +88,9 @@ public class ProfilePage {
         savePaymentInfoButton.click();
     }
 
-    public void inputDayOfPayment(String arg0) {
-        paymentRangeSlider.setValue(String.valueOf(12));
-    }
+    public void inputDayOfPayment(int arg0) {
+        for(int i=1;i<arg0;i++) {
+            paymentRangeSlider.sendKeys(Keys.ARROW_RIGHT);
+        }
+        }
 }

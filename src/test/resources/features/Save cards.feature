@@ -4,169 +4,145 @@ Feature: Save cards
     Given site is opened
     And user is already logged in
 
-@advertiser
-  Scenario Outline: Save button is disabled
+  @advertiser
+  Scenario: Save button is disabled
     When user clicks Advertiser block
-    And user clicks "<adver>" Advertiser
+    And user clicks "random" Advertiser
     Then Moved to save button is disabled
 
-    Examples:
-      | adver           |
-      | Test Advertiser |
-      | Adidas          |
-@publisher
-  Scenario Outline: Publisher info
+
+  @publisher
+  Scenario: Publisher info
     When user clicks Publishers block
-    And user clicks "<publisher>" Publisher
+    And user clicks "random" Publisher
     Then Moved to save button is disabled
 
 
-    Examples:
-      | publisher |
-      | Youtube   |
-      | Instagram |
-
-@top_level_client
-  Scenario Outline: Top level client info
+  @top_level_client
+  Scenario: Top level client info
     When user clicks Top level clients block
-    And user clicks "<client>" Client
+    And user clicks "random" Client
     Then Moved to save button is disabled
 
-    Examples:
-      | client       |
-      | Jon Snow     |
-      | Artur Fleck  |
-      | Tim Cook     |
-      | Bugs Bunny   |
-      | Sasha Grey   |
-      | You          |
-      | Leonel Messi |
-      | Tony Stark   |
-      | Elon Musk    |
-      | Darth Vader  |
 
-
-  Scenario Outline: Save button is disabled after scrolling to the middle
+  @advertiser
+  Scenario: Save button is disabled after scrolling to the middle
     When user clicks Advertiser block
-    And user clicks "<adver>" Advertiser
-      And user scrolls textarea to the middle
-    Then Moved to save button is disabled
-
-    Examples:
-      | adver           |
-      | Test Advertiser |
-      | Adidas          |
-
-
-  Scenario Outline: Publisher info after scrolling to the middle
-    When user clicks Publishers block
-    And user clicks "<publisher>" Publisher
+    And user clicks "random" Advertiser
     And user scrolls textarea to the middle
     Then Moved to save button is disabled
 
 
-    Examples:
-      | publisher |
-      | Youtube   |
-      | Instagram |
-
-
-  Scenario Outline: Top level client info after scrolling to the middle
-    When user clicks Top level clients block
-    And user clicks "<client>" Client
+  @publisher
+  Scenario: Publisher info after scrolling to the middle
+    When user clicks Publishers block
+    And user clicks "random" Publisher
     And user scrolls textarea to the middle
     Then Moved to save button is disabled
 
-    Examples:
-      | client       |
-      | Jon Snow     |
-      | Artur Fleck  |
-      | Tim Cook     |
-      | Bugs Bunny   |
-      | Sasha Grey   |
-      | You          |
-      | Leonel Messi |
-      | Tony Stark   |
-      | Elon Musk    |
-      | Darth Vader  |
 
-
-
-  Scenario Outline: Save button is disabled after scrolling to the end
-    When user clicks Advertiser block
-    And user clicks "<adver>" Advertiser
-    And user scrolls textarea to the end
-    Then Moved to save button is enabled
-
-    Examples:
-      | adver           |
-      | Test Advertiser |
-      | Adidas          |
-
-
-  Scenario Outline: Publisher info after scrolling to the end
-    When user clicks Publishers block
-    And user clicks "<publisher>" Publisher
-    And user scrolls textarea to the end
-    Then Moved to save button is enabled
-
-
-    Examples:
-      | publisher |
-      | Youtube   |
-      | Instagram |
-
-
-  Scenario Outline: Top level client info after scrolling to the end
+  @top_level_client
+  Scenario: Top level client info after scrolling to the middle
     When user clicks Top level clients block
-    And user clicks "<client>" Client
+    And user clicks "random" Client
+    And user scrolls textarea to the middle
+    Then Moved to save button is disabled
+
+
+  @advertiser
+  Scenario: Save button is disabled after scrolling to the end
+    When user clicks Advertiser block
+    And user clicks "random" Advertiser
     And user scrolls textarea to the end
     Then Moved to save button is enabled
 
-    Examples:
-      | client       |
-      | Jon Snow     |
-      | Artur Fleck  |
-      | Tim Cook     |
-      | Bugs Bunny   |
-      | Sasha Grey   |
-      | You          |
-      | Leonel Messi |
-      | Tony Stark   |
-      | Elon Musk    |
-      | Darth Vader  |
 
-
-
-    Scenario: Add Advertiser to the saved articles
-      When user clicks Advertiser block
-      And user clicks "Test Advertiser" Advertiser
-      And user scrolls textarea to the end
-      And user clicks move to saved button
-      And user clicks Advertiser in Saved articles
-      Then "Test Advertiser" is shown in Saved Advertiser Articles
-      And "Test Advertiser" isn't shown in Advertiser Articles to read
-      Then "Test Advertiser" is added to cookie "saved"
-
-
-  Scenario: Add Publisher to the saved articles
+  @publisher
+  Scenario: Publisher info after scrolling to the end
     When user clicks Publishers block
-    And user clicks "Youtube" Publisher
+    And user clicks "random" Publisher
+    And user scrolls textarea to the end
+    Then Moved to save button is enabled
+
+  @top_level_client
+  Scenario: Top level client info after scrolling to the end
+    When user clicks Top level clients block
+    And user clicks "random" Client
+    And user scrolls textarea to the end
+    Then Moved to save button is enabled
+
+
+  @advertiser
+  Scenario: Add random Advertiser to the saved articles
+    When user clicks Advertiser block
+    And user clicks "random" Advertiser
+    And user scrolls textarea to the end
+    And user clicks move to saved button
+    And user clicks Advertiser in Saved articles
+    Then selected Advertiser is shown in Saved Advertiser Articles
+    And selected Advertiser isn't shown in Advertiser Articles to read
+    And selected Advertiser is added to cookie "saved"
+
+  @publisher
+  Scenario: Add random Publisher to the saved articles
+    When user clicks Publishers block
+    And user clicks "random" Publisher
     And user scrolls textarea to the end
     And user clicks move to saved button
     And user clicks Publisher in Saved articles
-    Then "Youtube" is shown in Saved Publisher Articles
-    And "Youtube" isn't shown in Publisher Articles to read
+    Then selected Publisher is shown in Saved Publisher Articles
+    And selected Publisher isn't shown in Publisher Articles to read
+    And selected Publisher is added to cookie "saved"
 
-
+  @top_level_client
   Scenario: Add Top Level Clients to the saved articles
     When user clicks Top level clients block
-    And user clicks "Sasha Grey" Client
+    And user clicks "random" Client
     And user scrolls textarea to the end
     And user clicks move to saved button
     And user clicks Top level clients in Saved articles
-    Then "Sasha Grey" is shown in Saved Top level clients Articles
-    And "Sasha Grey" isn't shown in Top Level clients Articles to read
+    Then selected Client is shown in Saved Top level clients Articles
+    And selected Client isn't shown in Top Level clients Articles to read
+    And selected Client is added to cookie "saved"
+
+
+  @advertiser
+  Scenario: Remove Advertiser article from saved
+    When user clicks Advertiser block
+    And user clicks "random" Advertiser
+    And user scrolls textarea to the end
+    And user clicks move to saved button
+    And user clicks Remove from saved button
+    Then selected Advertiser isn't shown in Saved Advertiser Articles
+    And selected Advertiser is shown in Advertiser Articles to read
+    And random Advertiser isn't added in cookie "saved"
+
+  @publisher
+  Scenario: Remove Publisher to the saved articles
+    When user clicks Publishers block
+    And user clicks "random" Publisher
+    And user scrolls textarea to the end
+    And user clicks move to saved button
+    And user clicks Remove from saved button
+    Then selected Publisher isn't shown in Saved Publisher Articles
+    And selected Publisher is shown in Publisher Articles to read
+    And selected Publisher isn't added to cookie "saved"
+
+  @top_level_client
+  Scenario: Remove Top Level Clients to the saved articles
+    When user clicks Top level clients block
+    And user clicks "random" Client
+    And user scrolls textarea to the end
+    And user clicks move to saved button
+    And user clicks Remove from saved button
+    Then selected Client isn't shown in Saved Top level clients Articles
+    And selected Client is shown in Top Level clients Articles to read
+    And selected Client isn't added to cookie "saved"
+
+
+
+
+
 
 
 

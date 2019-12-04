@@ -1,5 +1,6 @@
 package stepdefs;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
@@ -11,42 +12,47 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Date;
+import java.util.Properties;
 
 import static com.codeborne.selenide.Selenide.screenshot;
 
 
 public class Hooks {
 
-    Scenario scenario;
     String scenarioName;
     String featureName;
 
+
     @Before
     public void setUp(Scenario scenario) {
-        this.scenario = scenario;
-        scenarioName = Preparing.getScenarioName(scenario);
+        TestContext.clearTestVariables();
+        Configuration.screenshots = false;
+        Configuration.holdBrowserOpen=true;
+
         featureName = Preparing.getFeatureName(scenario);
-        System.out.println(featureName);
-        System.out.println(scenarioName);
+
+        Configuration.reportsFolder = "test-result/reports/" + featureName;
 
     }
 
 
     @After
-    public void close() {
-        if (scenario.isFailed()) {
-            Date date = new Date();
+    public void close(Scenario scenario) {
 
-            String filepath="build/screenshots/"+featureName+"/"+scenarioName+(String.valueOf(date.getTime()));
-            screenshot(filepath);
-           // File screen = new File(filepath+".png");
-            try {
-                scenario.embed(Files.readAllBytes(Paths.get(System.getProperty("user.dir")+filepath+".png")),"image/png");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        Date date = new Date();
+        if(TestContext.getSize()>0)
+        scenario.write("Using variables in scenario:"+TestContext.printSharedVariables());
+        scenarioName = Preparing.getScenarioName(scenario);
+        String fileName = scenarioName + (String.valueOf(date.getTime()));
+        screenshot(fileName);
+        String filepath = "test-result/reports/" + featureName + File.separator + fileName + ".png";
+        try {
+            scenario.embed(Files.readAllBytes(Paths.get(filepath)), "image/png");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        WebDriverRunner.getWebDriver().quit();
+
+  //      WebDriverRunner.getWebDriver().quit();
     }
 
 }

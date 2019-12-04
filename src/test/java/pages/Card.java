@@ -148,5 +148,8 @@ public class Card {
         movedToSavedButton.click();
     }
 
+    public void clickRemovedFromSavedButton() {
+        removedFromSavedButton.click();
+    }
 }
 

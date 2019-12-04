@@ -1,5 +1,6 @@
 package stepdefs;
 
+import com.codeborne.selenide.WebDriverRunner;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -26,12 +27,13 @@ ProfilePage profilePage = page(ProfilePage.class);
 
     @And("^user clicks Save user info button$")
     public void userClicksSaveUserInfoButton() throws Throwable {
-       profilePage.clickSaveUserInfo();
+        profilePage.clickSaveUserInfo();
     }
 
     @Then("^successful alert is shown$")
     public void successfulAlertIsShown() throws Throwable {
        profilePage.successfullAlertIsShown();
+
     }
 
     @When("^user clicks Payment Info$")
@@ -54,13 +56,13 @@ ProfilePage profilePage = page(ProfilePage.class);
        profilePage.clickSavePaymentInfo();
     }
 
-    @Then("^succesful payment info saved alert is shown$")
-    public void succesfulPaymentInfoSavedAlertIsShown() throws Throwable {
+    @Then("^successful payment info saved alert is shown$")
+    public void successfulPaymentInfoSavedAlertIsShown() throws Throwable {
         profilePage.successfulPaymentInfoSavedIsShown();
     }
 
     @And("^user inputs ([^\"]*) day of payment$")
     public void userInputsDayOfPayment(String arg0) throws Throwable {
-       profilePage.inputDayOfPayment(arg0);
+       profilePage.inputDayOfPayment(22);
     }
 }
