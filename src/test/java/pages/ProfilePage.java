@@ -5,6 +5,8 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.support.FindBy;
 
+import static com.codeborne.selenide.Selenide.$x;
+
 public class ProfilePage {
 
     @FindBy(id = "v-pills-home-tab")
@@ -89,8 +91,20 @@ public class ProfilePage {
     }
 
     public void inputDayOfPayment(int arg0) {
-        for(int i=1;i<arg0;i++) {
+        int currentValue = Integer.parseInt(paymentRangeSlider.getValue());
+        if(currentValue<arg0)
+            while(currentValue!=arg0){
             paymentRangeSlider.sendKeys(Keys.ARROW_RIGHT);
+            currentValue = Integer.parseInt(paymentRangeSlider.getValue());
         }
+        else
+            while(currentValue!=arg0){
+                paymentRangeSlider.sendKeys(Keys.ARROW_LEFT);
+                currentValue = Integer.parseInt(paymentRangeSlider.getValue());
+            }
         }
+
+    public void validationMessageIsShown(String arg0) {
+        $x("//div[@class='invalid-feedback' and contains(text(),'"+arg0+"')]").shouldBe(Condition.visible);
+    }
 }

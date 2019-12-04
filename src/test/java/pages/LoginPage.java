@@ -1,16 +1,13 @@
 package pages;
 
+import additional.LoadProperties;
 import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.SelenideWait;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
 
 import java.util.Properties;
-
-import static com.codeborne.selenide.Selenide.Wait;
 
 public class LoginPage {
     @FindBy(id = "registrationContainer")

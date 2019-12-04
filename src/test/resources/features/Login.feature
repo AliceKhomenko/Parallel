@@ -5,7 +5,7 @@ Feature: Login
   Background:
     Given site is opened
 
-  @smoke
+  @login
   Scenario: User logged in
     When user inputs correct login
     And user inputs correct password
@@ -14,7 +14,7 @@ Feature: Login
     And user accepts 2nd alert
     Then main page is opened
 
-  @regression
+  @login
   Scenario: User doesn't confirm first alert
     When user inputs correct login
     And user inputs correct password
@@ -23,8 +23,8 @@ Feature: Login
     Then main page isn't opened
     And login page is opened
 
-  @regression
-  Scenario: User doesn't confirm first alert
+  @login
+  Scenario: User doesn't confirm second alert
     When user inputs correct login
     And user inputs correct password
     And user clicks Login button
@@ -33,8 +33,8 @@ Feature: Login
     Then main page isn't opened
     And login page is opened
 
-  @smoke
-  Scenario Outline: User can't logged in
+  @login
+  Scenario Outline: User can't logged in with wrong credentials
     When user inputs <login> login
     And user inputs <password> password
     And user clicks Login button
@@ -47,19 +47,19 @@ Feature: Login
       | incorrect | correct   |
       | correct   | incorrect |
 
-  @regression
+  @login
   Scenario: User can't logged with empty fields
     When user clicks login field
     And user clicks password field
     Then howerMeFaster button is disabled
 
-  @regression
+  @login
   Scenario: User can't log in with empty login
     When user clicks login field
     And user inputs correct password
     Then howerMeFaster button is disabled
 
-  @regression
+  @login
   Scenario: User can't log in with empty password
     When user inputs correct password
     And user clicks password field

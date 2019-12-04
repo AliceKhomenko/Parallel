@@ -4,28 +4,28 @@ Feature: Save cards
     Given site is opened
     And user is already logged in
 
-  @advertiser
+  @advertiser @saved @random
   Scenario: Save button is disabled
     When user clicks Advertiser block
     And user clicks "random" Advertiser
     Then Moved to save button is disabled
 
 
-  @publisher
+  @publisher @saved @random
   Scenario: Publisher info
     When user clicks Publishers block
     And user clicks "random" Publisher
     Then Moved to save button is disabled
 
 
-  @top_level_client
+  @top_level_client @saved @random
   Scenario: Top level client info
     When user clicks Top level clients block
     And user clicks "random" Client
     Then Moved to save button is disabled
 
 
-  @advertiser
+  @advertiser @saved @random
   Scenario: Save button is disabled after scrolling to the middle
     When user clicks Advertiser block
     And user clicks "random" Advertiser
@@ -33,7 +33,7 @@ Feature: Save cards
     Then Moved to save button is disabled
 
 
-  @publisher
+  @publisher @saved @random
   Scenario: Publisher info after scrolling to the middle
     When user clicks Publishers block
     And user clicks "random" Publisher
@@ -41,7 +41,7 @@ Feature: Save cards
     Then Moved to save button is disabled
 
 
-  @top_level_client
+  @top_level_client @saved @random
   Scenario: Top level client info after scrolling to the middle
     When user clicks Top level clients block
     And user clicks "random" Client
@@ -49,7 +49,7 @@ Feature: Save cards
     Then Moved to save button is disabled
 
 
-  @advertiser
+  @advertiser @saved @random
   Scenario: Save button is disabled after scrolling to the end
     When user clicks Advertiser block
     And user clicks "random" Advertiser
@@ -57,14 +57,14 @@ Feature: Save cards
     Then Moved to save button is enabled
 
 
-  @publisher
+  @publisher @saved @random
   Scenario: Publisher info after scrolling to the end
     When user clicks Publishers block
     And user clicks "random" Publisher
     And user scrolls textarea to the end
     Then Moved to save button is enabled
 
-  @top_level_client
+  @top_level_client @saved @random
   Scenario: Top level client info after scrolling to the end
     When user clicks Top level clients block
     And user clicks "random" Client
@@ -72,7 +72,7 @@ Feature: Save cards
     Then Moved to save button is enabled
 
 
-  @advertiser
+  @advertiser @saved @random
   Scenario: Add random Advertiser to the saved articles
     When user clicks Advertiser block
     And user clicks "random" Advertiser
@@ -83,7 +83,7 @@ Feature: Save cards
     And selected Advertiser isn't shown in Advertiser Articles to read
     And selected Advertiser is added to cookie "saved"
 
-  @publisher
+  @publisher @saved @random
   Scenario: Add random Publisher to the saved articles
     When user clicks Publishers block
     And user clicks "random" Publisher
@@ -94,7 +94,7 @@ Feature: Save cards
     And selected Publisher isn't shown in Publisher Articles to read
     And selected Publisher is added to cookie "saved"
 
-  @top_level_client
+  @top_level_client @saved @random
   Scenario: Add Top Level Clients to the saved articles
     When user clicks Top level clients block
     And user clicks "random" Client
@@ -106,7 +106,7 @@ Feature: Save cards
     And selected Client is added to cookie "saved"
 
 
-  @advertiser
+  @advertiser @saved @random
   Scenario: Remove Advertiser article from saved
     When user clicks Advertiser block
     And user clicks "random" Advertiser
@@ -117,7 +117,7 @@ Feature: Save cards
     And selected Advertiser is shown in Advertiser Articles to read
     And random Advertiser isn't added in cookie "saved"
 
-  @publisher
+  @publisher @saved @random
   Scenario: Remove Publisher to the saved articles
     When user clicks Publishers block
     And user clicks "random" Publisher
@@ -128,7 +128,7 @@ Feature: Save cards
     And selected Publisher is shown in Publisher Articles to read
     And selected Publisher isn't added to cookie "saved"
 
-  @top_level_client
+  @top_level_client @saved @random
   Scenario: Remove Top Level Clients to the saved articles
     When user clicks Top level clients block
     And user clicks "random" Client

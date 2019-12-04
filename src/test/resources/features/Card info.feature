@@ -4,8 +4,8 @@ Feature: Card info
     Given site is opened
     And user is already logged in
 
-  @advertiser
-  Scenario Outline: Advertiser info
+  @advertiser @article
+  Scenario Outline: Advertiser article
     When user clicks Advertiser block
     And user clicks "<adver>" Advertiser
     Then card title is "<adver>"
@@ -18,8 +18,8 @@ Feature: Card info
       | Test Advertiser | TestAdvertiser.txt | data/test_advert/test_advert.png |
       | Adidas          | Adidas.txt         | data/adidas/adidas.png           |
 
-  @publisher
-  Scenario Outline: Publisher info
+  @publisher @article
+  Scenario Outline: Publisher article
     When user clicks Publishers block
     And user clicks "<publisher>" Publisher
     Then card title is "<publisher>"
@@ -32,7 +32,7 @@ Feature: Card info
       | Youtube   | Youtube.txt   | data/youtube/youtube.png     |
       | Instagram | Instagram.txt | data/instagram/instagram.png |
 
-  @top_level_client
+  @top_level_client @article
   Scenario Outline: Top level client info
     When user clicks Top level clients block
     And user clicks "<client>" Client
@@ -53,24 +53,24 @@ Feature: Card info
       | Elon Musk    | ElonMusk.txt    | data/elon_musk/elon_musk.png       |
       | Darth Vader  | DarthVader.txt  | data/darth_vader/darth_vader.png   |
 
-
-    Scenario: User can increases scale of image
-      When user clicks Advertiser block
-      And user clicks "Adidas" Advertiser
-      And user increases image scale on 100%
-      Then image size is 500x500
-
-
-  Scenario: User can descreases scale of image
+@article @random
+  Scenario: User can increases scale of image
     When user clicks Advertiser block
-    And user clicks "Adidas" Advertiser
+    And user clicks "random" Advertiser
+    And user increases image scale on 100%
+    Then image size is 500x500
+
+@article @random
+  Scenario: User can decreases scale of image
+    When user clicks Advertiser block
+    And user clicks "random" Advertiser
     And user increases image scale on 100%
     And user decreases image scale on 100%
     Then image size is 300x300
 
 
-  @publisher
-  Scenario Outline:Saved advertiser article
+  @advertiser @article @saved
+  Scenario Outline: Saved Advertiser article
     When user clicks Advertiser block
     And user clicks "<adver>" Advertiser
     And user scrolls textarea to the end
@@ -87,8 +87,8 @@ Feature: Card info
       | Test Advertiser | TestAdvertiser.txt | data/test_advert/test_advert.png |
       | Adidas          | Adidas.txt         | data/adidas/adidas.png           |
 
-
-  Scenario Outline: Saved publisher article
+@publisher @article @saved
+  Scenario Outline: Saved Publisher article
     When user clicks Publishers block
     And user clicks "<publisher>" Publisher
     And user scrolls textarea to the end
@@ -105,8 +105,8 @@ Feature: Card info
       | Youtube   | Youtube.txt   | data/youtube/youtube.png     |
       | Instagram | Instagram.txt | data/instagram/instagram.png |
 
-  @top_level_client
-  Scenario Outline: Saved top level client info
+  @top_level_client @article @saved
+  Scenario Outline: Saved Top level client info
     When user clicks Top level clients block
     And user clicks "<client>" Client
     And user scrolls textarea to the end

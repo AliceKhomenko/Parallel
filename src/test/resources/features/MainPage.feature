@@ -12,9 +12,6 @@ Feature: Main Page
     Then Advertisers list is shown
     And Publishers list is shown
     And Top level clients list is shown
-    And "Advertisers" is added to cookie "notSavedOpened"
-    And "Publishers" is added to cookie "notSavedOpened"
-    And "Top level clients" is added to cookie "notSavedOpened"
 
 
   @advertiser

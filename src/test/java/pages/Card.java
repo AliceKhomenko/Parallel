@@ -1,23 +1,19 @@
 package pages;
 
+import additional.FileReader;
+import additional.LoadProperties;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Point;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static com.codeborne.selenide.Selenide.screenshot;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class Card {
@@ -132,7 +128,6 @@ public class Card {
         String path = properties.getProperty("short.descrtiption.path") + file;
         String fileText = FileReader.readFile(path);
         return fileText.equals(shortDescription.getText());
-
     }
 
     public boolean MovedToSaveButtonIsDisabled() {
@@ -140,7 +135,6 @@ public class Card {
     }
 
     public void waitForPageLoad() {
-
         card.waitUntil(Condition.visible, 10000);
     }
 

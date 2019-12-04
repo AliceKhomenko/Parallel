@@ -1,18 +1,14 @@
 package stepdefs;
 
-import com.codeborne.selenide.WebDriverRunner;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pages.ProfilePage;
-import sun.java2d.cmm.Profile;
 
 import static com.codeborne.selenide.Selenide.page;
 
 public class ProfileStepDefs {
 ProfilePage profilePage = page(ProfilePage.class);
-
 
 
     @And("^user inputs \"([^\"]*)\" in first name field$")
@@ -33,7 +29,6 @@ ProfilePage profilePage = page(ProfilePage.class);
     @Then("^successful alert is shown$")
     public void successfulAlertIsShown() throws Throwable {
        profilePage.successfullAlertIsShown();
-
     }
 
     @When("^user clicks Payment Info$")
@@ -64,5 +59,10 @@ ProfilePage profilePage = page(ProfilePage.class);
     @And("^user inputs ([^\"]*) day of payment$")
     public void userInputsDayOfPayment(String arg0) throws Throwable {
        profilePage.inputDayOfPayment(22);
+    }
+
+    @Then("^validation message \"([^\"]*)\" is shown$")
+    public void validationMessageIsShown(String arg0) throws Throwable {
+        profilePage.validationMessageIsShown(arg0);
     }
 }

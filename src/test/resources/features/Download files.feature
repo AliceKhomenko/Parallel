@@ -5,7 +5,7 @@ Feature: Check files
     And site is opened
     And user is already logged in
 
-
+@advertiser @download
   Scenario Outline: Check files for Advertisers
     When user clicks Advertiser block
     And user clicks "<Advertiser>" Advertiser
@@ -17,7 +17,7 @@ Feature: Check files
       | Test Advertiser |
       | Adidas          |
 
-
+@publisher @download
   Scenario Outline: Check files for Publishers
     When user clicks Publishers block
     And user clicks "<Publisher>" Publisher
@@ -29,6 +29,7 @@ Feature: Check files
       | Youtube   |
       | Instagram |
 
+  @top_level_client @download
   Scenario Outline: Check files for Top level clients
     When user clicks Top level clients block
     And user clicks "<Top level client>" Client
