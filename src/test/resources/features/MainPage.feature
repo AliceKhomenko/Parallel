@@ -1,5 +1,5 @@
 Feature: Main Page
-
+As user I want to get Advertisers,Publishers and Top Level Clients list
   Background:
     Given site is opened
     And user is already logged in

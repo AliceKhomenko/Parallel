@@ -1,11 +1,12 @@
 Feature: Profile page
+As user I want to input and edit personal info and payment info
 
   Background:
     Given site is opened
     And user is already logged in
     And user clicks avatar icon
 
-@user_info @profile
+@user_info @profile @cookie
   Scenario: Input user info
     When user inputs "Ozzy" in first name field
     And user inputs "Osbourne" in last name field
@@ -14,7 +15,7 @@ Feature: Profile page
     And "Ozzy" is added to cookie "firstName"
     And "Osbourne" is added to cookie "lastName"
 
-@user_info @profile
+@user_info @profile @cookie
   Scenario: Update user info
     When user inputs "Ozzy" in first name field
     And user inputs "Osbourne" in last name field
@@ -41,7 +42,7 @@ Feature: Profile page
       |            |           | Please set your first name |
 
 
-  @payment_info @profile
+  @payment_info @profile @cookie
   Scenario Outline: Input payment info
     When user clicks Payment Info
     And user inputs "<card>" card number
@@ -60,7 +61,7 @@ Feature: Profile page
       | 12345            | Apple Card | 31  |3         |
 
 
-  @payment_info @profile
+  @payment_info @profile @cookie
   Scenario Outline: Update payment info
     When user clicks Payment Info
     And user inputs "<card>" card number
@@ -74,7 +75,7 @@ Feature: Profile page
     Then successful payment info saved alert is shown
     And "<new card>" is added to cookie "cardNumber"
     And "<system id>" is added to cookie "paymentSystem"
-    And "<day>" is added to cookie "paymentDay"
+    And "<new day>" is added to cookie "paymentDay"
 
     Examples:
       | card             | system     | day | new card   | new system | new day |system id|
@@ -91,7 +92,7 @@ Feature: Profile page
     Then validation message "<message>" is shown
     Examples:
       | card  | system     | message                           |
-      |       | visa       | Please set your card number       |
+      |       | Visa       | Please set your card number       |
       |       | MasterCard | Please set your card number       |
       |       | Apple Card | Please set your card number       |
       | 12345 |            | Please select your payment system |

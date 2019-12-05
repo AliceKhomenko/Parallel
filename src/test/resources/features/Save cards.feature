@@ -1,4 +1,5 @@
 Feature: Save cards
+  As user I want to save articles and removed article from saved
 
   Background:
     Given site is opened
@@ -107,7 +108,7 @@ Feature: Save cards
 
 
   @advertiser @saved @random
-  Scenario: Remove Advertiser article from saved
+  Scenario: Remove Advertiser article from saved articles
     When user clicks Advertiser block
     And user clicks "random" Advertiser
     And user scrolls textarea to the end
@@ -118,7 +119,7 @@ Feature: Save cards
     And random Advertiser isn't added in cookie "saved"
 
   @publisher @saved @random
-  Scenario: Remove Publisher to the saved articles
+  Scenario: Remove Publisher from the saved articles
     When user clicks Publishers block
     And user clicks "random" Publisher
     And user scrolls textarea to the end
@@ -129,7 +130,7 @@ Feature: Save cards
     And selected Publisher isn't added to cookie "saved"
 
   @top_level_client @saved @random
-  Scenario: Remove Top Level Clients to the saved articles
+  Scenario: Remove Top Level Clients from the saved articles
     When user clicks Top level clients block
     And user clicks "random" Client
     And user scrolls textarea to the end
@@ -138,6 +139,21 @@ Feature: Save cards
     Then selected Client isn't shown in Saved Top level clients Articles
     And selected Client is shown in Top Level clients Articles to read
     And selected Client isn't added to cookie "saved"
+
+  @advertiser @cookie @saved
+  Scenario: Try adding article to the saved twice
+    When user clicks Advertiser block
+    And user clicks "random" Advertiser
+    And user scrolls textarea to the end
+    And user clicks move to saved button
+    And user clicks move to saved button
+    And user clicks Advertiser in Saved articles
+    Then selected Advertiser is shown in Saved Advertiser Articles
+    And Saved Advertiser list hasn't duplicates
+    And selected Advertiser is added to cookie "saved" once
+
+
+
 
 
 

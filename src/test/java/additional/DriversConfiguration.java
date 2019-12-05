@@ -18,6 +18,7 @@ public class DriversConfiguration {
         chromePrefs.put("download.directory_upgrade", true);
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("prefs", chromePrefs);
+        options.addArguments("--start-maximized");
 
         return options;
     }

@@ -1,6 +1,6 @@
 Feature: Login
 
-  AS user, I want to log in with correct credentials  and get access to
+  AS user, I want to log in  only with correct credentials  and get access to main page
 
   Background:
     Given site is opened

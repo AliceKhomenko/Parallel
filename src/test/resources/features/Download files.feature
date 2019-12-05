@@ -1,4 +1,6 @@
 Feature: Check files
+  As user I want to download file from Advertisers,Publishers and Topl Level Clients articles.
+  The file should be with correct information.
 
   Background:
     Given custom browser is configured

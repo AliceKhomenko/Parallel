@@ -189,4 +189,11 @@ public class MainPage {
         return savedTopLevelClients.findBy(Condition.text(client));
 
     }
+
+    public boolean checkForDuplicates(ElementsCollection elements) {
+        List<String> list = textInElements(elements);
+        Set<String> set = new HashSet<String>(list);
+        return list.size()==set.size();
+
+    }
 }

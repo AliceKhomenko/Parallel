@@ -1,5 +1,7 @@
 Feature: Card info
 
+  As user I want to read article with correct information
+
   Background:
     Given site is opened
     And user is already logged in

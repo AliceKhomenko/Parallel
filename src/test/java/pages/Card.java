@@ -59,7 +59,6 @@ public class Card {
         double w = (double) scale.getSize().width;
 
 
-        System.out.println(cardImage.getAttribute("style"));
         Actions actions = new Actions(getWebDriver());
 
         for (int i = 0; i < 11; i++) {
